@@ -1,0 +1,54 @@
+@import './mixins';
+@import './detailHeader';
+@import './toolBar';
+@import './infoPanel';
+@import './bookingItem';
+@import './upcomingCalendar';
+@import './extraOptions';
+@import './journeyBar';
+@import './logOut';
+@import './icons';
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans';
+  font-style: normal;
+  margin: 0;
+  text-align: center;
+}
+
+.secondary-info {
+  color: #d3d3d3;
+  text-transform: capitalize;
+
+  &.dark {
+    color: #7b7b7b;
+  }
+}
+
+.link {
+  text-decoration: none;
+}
+
+.detail-icon {
+  height: 40px;
+  max-width: 100%;
+  margin-right: 20px;
+}
+
+.label {
+  margin-bottom: 0;
+  opacity: 0.4;
+}
+
+.external-link {
+  display: block;
+  padding: 20px;
+}
+
+.Collapsible__contentInner {
+  background-color: #f8f8f8;
+}

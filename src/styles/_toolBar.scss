@@ -1,0 +1,106 @@
+@import './icons';
+@import './mixins';
+
+@include keyframes(rotate){
+	0%{
+		transform: rotate(0deg);
+		opacity: 0.8;
+  }
+	100%{
+		transform: rotate(360deg);
+		opacity: 1;
+	}
+}
+
+.toolbar {
+    background-color: #F6F6F6;
+    color: #595959;
+    height: 50px;
+    line-height: 70%;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    opacity: 1;
+    
+    img {
+        border-radius: 50%;
+        float: right;
+        margin-right: 10px;
+        margin-top: 10px;
+        max-width: 30px;   
+    }
+
+    .icon-bell {
+      background-color: rgba(255,0,0,0.7);
+      border: none;
+      border-radius: 4px;
+      color: #595959;
+      float: right;
+      font-size: 16px;
+      height: 30px;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    .icon-exit {
+      background-color: #DB2645;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      float: right;
+      font-size: 20px;
+      height: 24px;
+      margin-bottom: -10px;
+      margin-right: 10px;
+      margin-top: 10px;
+      padding-top: 6px;
+      text-decoration: none;
+      width: 30px;
+
+      a {
+          display: block;
+          height: 30px;
+          margin-top: -23px;
+          width: 30px;
+          z-index: 100;
+      }
+    }
+    .icon-loop2 {
+      background-color: #B1DD27;
+      border: none;
+      border-radius: 4px;
+      color: #595959;
+      float: right;
+      font-size: 16px;
+      height: 30px;
+      margin-right: 10px;
+      margin-top: 10px;
+
+      
+        &.disabled {
+            background-color: #808080;
+            opacity: 0.7;
+        }
+
+        &.refreshing {
+            animation: rotate 3s infinite;
+            background-color: transparent;
+        }
+    }
+    
+
+    select {
+        border: none;
+        background: no-repeat;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        left: 10px;
+        overflow: hidden;
+        position: absolute;
+        top: 10px;
+        display: none;
+    }
+}

@@ -1,0 +1,112 @@
+@import './travelTypeColours';
+
+.booking-card-panel {
+    display: flex;
+    text-align:center;
+
+    .booking-date {
+        background-color: #ffffff;
+        color: #595959;
+        font-size: 25px;
+        flex: 1 0 20%;
+        line-height: 10%;
+        margin-bottom: 20px;
+        min-width: 24vw;
+        order: 0;
+        padding-left: 3vw;
+    
+        .booking-day {
+            font-size: 10px;
+        }
+
+        .booking-time {
+          font-size: 15px;
+        }
+    }
+
+    .booking-card {
+        background-color: $defaultcolour;
+        border-radius: 4px;
+        //box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        color: #f2f2f2; 
+        display: flex;
+        flex-flow: row;
+        flex: 1 1 auto;
+        font-size: 14px;
+        line-height: 1.3em;
+        margin-bottom: 10px;
+        margin-right: 3vw;
+        text-align: left;
+        text-decoration: none;
+        transition: all linear 0.2s;
+
+        &.FLIGHT {
+          background-color: $flight;
+
+            &:hover {
+                background-color: lighten($flight, 10%)
+            }
+        }
+
+        &.HOTEL {
+          background-color: $hotel;
+          
+            &:hover {
+                background-color: lighten($hotel, 10%)
+            }
+        }
+
+        &.TRAIN {
+          background-color: $train;          
+
+            &:hover {
+                background-color: lighten($train, 10%)
+            }
+        }
+
+        &.VEHICLE {
+          background-color: $car;
+          
+            &:hover {
+                background-color: lighten($car, 10%)
+            }
+        }
+
+        &.TRAVELCARD {
+          background-color: $travelcard;
+
+            &:hover {
+                background-color: lighten($travelcard, 10%);
+            }
+        }
+    
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    
+        img {
+            display: flex;
+            height: 60px;
+            width: 60px;
+        }
+    
+        .booking-details {
+            display: flex;
+            flex: 1 6 20%;
+            min-width: 70vw;
+            order: 2;
+            
+            img {
+                padding-right: 10px;
+                padding-left: 10px;
+                margin-top:auto;
+                margin-bottom:auto;
+            }
+    
+            .booking-text {
+                padding-right: 20px;
+            }
+        }
+    }
+}

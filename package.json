@@ -1,7 +1,6 @@
 {
-  "name": "my.travel.cloud",
-  "version": "0.1.1",
-  "private": true,
+  "name": "Itinerary",
+  "version": "1.0.0",
   "dependencies": {
     "code": "^4.1.0",
     "currency-formatter": "^1.2.1",
@@ -42,5 +41,18 @@
     "eslint-plugin-react": "^7.3.0",
     "normalize.css": "^7.0.0",
     "npm-run-all": "^4.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/travel-cloud/Itinerary.git"
+  },
+  "bugs": {
+    "url": "https://github.com/travel-cloud/Itinerary/issues"
+  },
+  "homepage": "https://github.com/travel-cloud/Itinerary#readme",
+  "license": "Apache-2.0",
+  "directories": {
+    "src": "src"
+  },
+  "author": "travel-cloud"
 }

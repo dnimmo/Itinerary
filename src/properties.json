@@ -1,0 +1,8 @@
+{
+  "travelcloudUrl": "eg https://apps.stable.travel.cloud/",
+  "authUrl" : "eg https://auth.stable.travel.cloud/oauth/authorize?",
+  "clientId" : "your token",
+  "redirectUri" : "eg redirect_uri=http://localhost:3000/sign-in",
+  "travelUrl" : "eg https://travel.stable.travel.cloud/users/user/futureBookings",
+  "usersUrl" : "eg https://users.stable.travel.cloud/users/user/profile"
+}

@@ -1,0 +1,44 @@
+.added-options-component {
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+  margin-bottom: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 10px;
+  text-align: left;
+
+  header {
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding-left: 20px;
+  }
+
+  p {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 20px;
+  }
+
+  a {
+    background-color: #1880cf;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin: 20px;
+    padding: 10px;
+    transition: all linear 0.2s;
+
+    &:hover {
+      box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+      transform: scale(1.1);
+    }
+  }
+
+  @include bp(m) {
+    margin-left: 30vw;
+    max-width: 40vw;
+  }
+}

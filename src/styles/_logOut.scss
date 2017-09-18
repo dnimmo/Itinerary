@@ -1,0 +1,52 @@
+@import './icons';
+
+.logout-panel {
+  color: #cccccc;
+  font-size: 25px;
+  margin: 20px;
+  text-align: center;
+
+  p.detail {
+    font-size: 10px;
+  }
+
+  a.back {
+    background-color: #B1DD27;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+  }
+
+  a.go-back-button, a.log-out-button {
+    border-radius: 6px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    color: #fff;
+    display: block;
+    margin: 20px;
+    padding: 20px;
+    text-decoration: none;
+    transition: all linear 0.2s;
+  }
+
+  .go-back-button {
+    background-color: #1886CF;
+
+      &:hover {
+        background-color: lighten(#1886CF, 10%);
+        cursor: pointer;
+      }
+  }
+
+  .log-out-button {
+    background-color: #ff0000;
+
+      &:hover {
+        background-color: lighten(#ff0000, 20%);
+        cursor: pointer;
+      }
+  }
+}

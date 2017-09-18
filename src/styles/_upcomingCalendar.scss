@@ -1,0 +1,126 @@
+.refreshing-panel {
+  background-color: #B1DD27;
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  padding: 5px;
+}
+
+.no-bookings-panel {
+  color: #cccccc;
+  font-size: 25px;
+  margin: 20px;
+  text-align: center;
+
+  p.detail {
+    font-size: 15px;
+  }
+}
+
+.month-panel {
+  display: flex;
+  background-color: #83bdec;
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  padding-left: 3vw;
+  margin-bottom: 10px;
+
+  //
+  &.January {
+    //background-color: #c98060;
+  }
+
+  &.Febuary {
+    //background-color: #b195c6;
+  }
+
+  &.March {
+    //background-color: #bbe3e2;
+  }
+
+  &.April {
+    //background-color: #ea5e61;
+  }
+
+  &.May {
+    //background-color: #88be80;
+  }
+
+  &.June {
+    //background-color: #ffd777;
+  }
+
+  &.July {
+    //background-color: #fcd4dc;
+  }
+
+  &.August {
+    //background-color: #f7953e;
+  }
+
+  &.September {
+    //background-color: #4870b6;
+  }
+
+  &.October {
+    //background-color: #92b9da;
+  }
+
+  &.November {
+    //background-color: #cd5777;
+  }
+
+  &.December {
+    //background-color: #0f8da4;
+  }
+}
+
+.upcoming-calendar {
+  left: 0;
+  padding-top: 50px;
+
+  .time-indicator-container {
+    background-color: #fff;
+    height: 20px;
+    margin-left: 2vw;
+    margin-top: -20px;
+    padding-top: 20px;
+    position: fixed;
+    width: 96vw;
+  }
+
+  .time-indicator {
+    top: 60px;
+    border-radius: 1em;
+    background: #F3CE5C;
+    height: 1em;
+    left: 10px;
+    margin: 1em 0; 
+    position: fixed;
+    width: 1em;
+    z-index: 2;
+  }
+
+  .timeline {
+    background-color: #f3ce5c;
+    height: 3px;
+  }
+
+}
+
+.booking-text {
+  p {
+    margin-top: 0;
+
+    &:first-of-type {
+      margin-bottom: 0;
+      margin-top: 10px;
+    }
+
+    &:nth-of-type(2) {
+      margin-bottom: 5px;
+    }
+  }
+}

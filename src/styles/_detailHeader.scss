@@ -1,0 +1,63 @@
+@import './travelTypeColours';
+
+.detail-header {
+  background-color: $defaultcolour;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+  display: flex;
+  padding: 20px;
+  text-align: left;
+
+  &.FLIGHT {
+    background-color: $flight
+  }
+
+  &.HOTEL {
+    background-color: $hotel
+  }
+
+  &.TRAIN {
+    background-color: $train
+  }
+
+  &.VEHICLE {
+    background-color: $car
+  }
+
+  &.TRAVELCARD {
+    background-color: $travelcard
+  }
+
+  p {
+    color: #fff;
+    margin: 0;
+    padding-right: 30px;
+    text-transform: capitalize;
+
+    &.separator {
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+
+    &.secondary-info {
+      color: #d3d3d3;
+
+      &.dark {
+        color: #7b7b7b;
+      }
+    }
+  }
+
+  .icon-cross {
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    right: 25px;
+    text-decoration: none;
+    top: 15px;
+    transition: all linear 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

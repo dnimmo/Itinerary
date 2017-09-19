@@ -8,7 +8,7 @@ const bookingToHotelCard =
     return Array.from(Array(days).keys()).map(nightnum => ({
       id,
       propertyName,
-      date: moment(checkInDate).add(nightnum, 'd').format(),
+      date: moment(checkInDate).add(nightnum, 'd').endOf('day').format(),
       checkInDate,
       checkOutDate,
       address: address.join(', '),
@@ -18,6 +18,7 @@ const bookingToHotelCard =
       telephone,
       travelType,
       unique: `${id}${nightnum}`,
+      dayNumber: moment(checkInDate).add(nightnum, 'd').format('Do'),
     }));
   };
 
@@ -30,6 +31,7 @@ const bookingToFlightCard =
       depart: segments[0].depart.location.name,
       arrive: segments[segments.length - 1].arrive.location.name,
       date: segments[0].depart.dateTime,
+      dayNumber: moment(segments[0].depart.dateTime).format('Do'),
       cardId: moment(segments[0].depart.dateTime).endOf('month'),
       vendor: details.codeshareCarrier.name,
       travelType,
@@ -46,6 +48,7 @@ const bookingToTrainCard =
       depart: legs[0].depart.location.name,
       arrive: legs[legs.length - 1].arrive.location.name,
       date: legs[0].depart.dateTime,
+      dayNumber: moment(legs[0].depart.dateTime).format('Do'),
       cardId: moment(legs[0].depart.dateTime).endOf('month'),
       ticketType: ticketType.name,
       travelType,
@@ -59,12 +62,27 @@ const bookingToVehicleCard =
     return [{
       id,
       pickUpLocation: product.details.pickUp.location.name,
+      dropOffLocation: product.details.dropOff.location.name,
       rentalCompanyName: product.subProducts[0].details.vendor,
       cardId: moment(serviceDate).endOf('month'),
       date: product.details.pickUp.dateTime,
+      action: 'PICK-UP',
+      dayNumber: moment(product.details.pickUp.dateTime).format('Do'),
       model: product.subProducts[0].details.model,
       travelType,
-      unique: `${id}`,
+      unique: `${id}PICK-UP`,
+    }, {
+      id,
+      pickUpLocation: product.details.pickUp.location.name,
+      dropOffLocation: product.details.dropOff.location.name,
+      rentalCompanyName: product.subProducts[0].details.vendor,
+      cardId: moment(product.details.dropOff.dateTime).endOf('month'),
+      date: product.details.dropOff.dateTime,
+      action: 'DROP-OFF',
+      dayNumber: moment(product.details.dropOff.dateTime).format('Do'),
+      model: product.subProducts[0].details.model,
+      travelType,
+      unique: `${id}DROP-OFF`,
     }];
   };
 
@@ -74,12 +92,14 @@ const bookingToTravelCardCard =
       return [{
         id,
         name: product.subProducts[0].details.name,
-        date: moment(serviceDate).format(),
+        date: moment(serviceDate).endOf('day').format(),
+        dayNumber: moment(serviceDate).format('Do'),
         cardId: moment(serviceDate).endOf('month'),
         travelType,
         unique: `${id}`,
       }];
     };
+
 
 const bookingsToCards =
   (bookings) => {

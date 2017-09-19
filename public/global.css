@@ -241,6 +241,8 @@ hr {
 .booking-card-panel {
   display: flex;
   text-align: center; }
+  .booking-card-panel.first {
+    margin-top: 5px; }
   .booking-card-panel .booking-date {
     background-color: #ffffff;
     color: #595959;

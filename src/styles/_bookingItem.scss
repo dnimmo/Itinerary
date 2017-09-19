@@ -4,6 +4,10 @@
     display: flex;
     text-align:center;
 
+    &.first {
+      margin-top: 5px;
+    }
+
     .booking-date {
         background-color: #ffffff;
         color: #595959;

@@ -51,12 +51,13 @@ cards => (
         <Card
           key={x.unique}
           travelType={x.travelType}
-          dayNumber={moment(x.date).format('Do')}
+          dayNumber={x.dayNumber}
           day={moment(x.date).format('ddd')}
           data={x}
           link={CardLink(x.travelType)}
           imageFile={CardImage(x.travelType)}
           id={x.id}
+          firstBookingOfDay={x.id === data.find(({ dayNumber }) => dayNumber === x.dayNumber).id}
         />
       ))}
     </div>
@@ -74,10 +75,10 @@ const Cards =
 };
 
 Cards.propTypes = {
-  bookings: PropTypes.arrayOf({
+  bookings: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
     data: PropTypes.array, // TODO: Consider more specification
-  }).isRequired,
+  })).isRequired,
 };
 
 export default Cards;

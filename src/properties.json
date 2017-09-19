@@ -1,8 +1,8 @@
 {
-  "travelcloudUrl": "eg https://apps.stable.travel.cloud/",
-  "authUrl" : "eg https://auth.stable.travel.cloud/oauth/authorize?",
-  "clientId" : "your token",
-  "redirectUri" : "eg redirect_uri=http://localhost:3000/sign-in",
-  "travelUrl" : "eg https://travel.stable.travel.cloud/users/user/futureBookings",
-  "usersUrl" : "eg https://users.stable.travel.cloud/users/user/profile"
+  "travelcloudUrl": "whttps://apps.travel.cloud/",
+  "authUrl" : "https://auth.uat.travel.cloud/oauth/authorize?",
+  "clientId" : "ab31eaeb",
+  "redirectUri" : "redirect_uri=http://localhost:3000/sign-in",
+  "travelUrl" : "https://travel.uat.travel.cloud/users/user/futureBookings",
+  "usersUrl" : "https://users.uat.travel.cloud/users/user/profile"
 }

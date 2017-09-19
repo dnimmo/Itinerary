@@ -6,27 +6,6 @@ import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
 
-const CardTime =
-  ({
-    travelType,
-    date,
-  }) => {
-    switch (travelType) {
-      case 'HOTEL':
-        return <p className="booking-time" />;
-      case 'FLIGHT':
-        return <p className="booking-time">{moment(date).format('HH:mm')} </p>;
-      case 'TRAIN':
-        return <p className="booking-time">{moment(date).format('HH:mm')} </p>;
-      case 'TRAVELCARD':
-        return <p className="booking-time" />;
-      case 'VEHICLE':
-        return <p className="booking-time">{moment(date).utc().format('HH:mm')} </p>;
-      default:
-        return <p />;
-    }
-  };
-
 const CardDetails =
 ({
   travelType,
@@ -43,16 +22,14 @@ const CardDetails =
     case 'FLIGHT':
       return (
         <div className="booking-text">
-          <p> { data.depart.split(',')[1] } </p>
-          <p> { data.arrive.split(',')[1] } </p>
+          <p> { moment(data.date).format('HH:mm')}  { data.depart.split(',')[1] } to { data.arrive.split(',')[1] }</p>
           <p className="secondary-info"> { (`${data.vendor}`)} </p>
         </div>
       );
     case 'TRAIN':
       return (
         <div className="booking-text">
-          <p> { data.depart } </p>
-          <p> { data.arrive }  </p>
+          <p> { moment(data.date).format('HH:mm') } { data.depart } to { data.arrive } </p>
           <p className="secondary-info dark"> { data.ticketType }  </p>
         </div>
       );
@@ -65,9 +42,8 @@ const CardDetails =
     case 'VEHICLE':
       return (
         <div className="booking-text">
-          <p> { data.pickUpLocation } </p>
+          <p> {moment(data.date).utc().format('HH:mm')} { data.action === 'PICK-UP' ? `Pick Up ${data.pickUpLocation}` : `Drop Off ${data.dropOffLocation}`} </p>
           <p className="secondary-info dark"> { data.rentalCompanyName } </p>
-          <p className="secondary-info dark"> { data.model } </p>
         </div>
       );
     default:
@@ -90,13 +66,13 @@ const Card =
   imageFile,
   id,
   key,
+  firstBookingOfDay,
 }) => {
   const className = `booking-card ${travelType}`;
-  return (<div className="booking-card-panel">
+  return (<div className={firstBookingOfDay ? 'booking-card-panel first' : 'booking-card-panel'}>
     <div className="booking-date">
-      <p> {dayNumber} </p>
-      <p className="booking-day"> {day} </p>
-      <CardTime travelType={travelType} date={data.date} />
+      <p> {firstBookingOfDay ? dayNumber : ''}</p>
+      <p className="booking-day"> {firstBookingOfDay ? day : ''} </p>
     </div>
     <div className={className}>
       <Link
@@ -112,11 +88,6 @@ const Card =
   </div>);
 };
 
-CardTime.propTypes = {
-  travelType: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-};
-
 Card.propTypes = {
   travelType: PropTypes.string.isRequired,
   dayNumber: PropTypes.string.isRequired,
@@ -125,6 +96,7 @@ Card.propTypes = {
   link: PropTypes.string.isRequired,
   imageFile: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  firstBookingOfDay: PropTypes.bool.isRequired,
   key: PropTypes.string,
 };
 

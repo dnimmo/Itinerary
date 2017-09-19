@@ -1,4 +1,4 @@
-const version = 'Ivysaur';
+const version = 'Venusaur';
 const dynamicCacheVersion = `${version}-dynamic`;
 
 const isDynamic = url => url.includes('travel.cloud/users/user/futureBookings');

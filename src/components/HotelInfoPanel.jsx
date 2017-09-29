@@ -3,39 +3,7 @@ import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import currencyFormatter from 'currency-formatter';
 import CollapsibleInfo from './CollapsibleInfo';
-
-const InfoItemWithLink =
-  ({ label, displayText, href }) =>
-    (<div className="info-item">
-      <p className="label">{label}</p>
-      <p>
-        {displayText !== 'Not recorded' ? <a href={href}>{displayText}</a> : displayText }
-      </p>
-    </div>);
-
-const InfoItem =
-  ({ label, displayText }) => (<div className="info-item">
-    <p className="label">{label}</p>
-    <p>{displayText}</p>
-  </div>);
-
-const InfoItemFullWidth =
-  ({ label, displayText }) => (<div className="info-item-full-width">
-    <p className="label">{label}</p>
-    <p>{displayText}</p>
-  </div>);
-
-const InfoItemMultiple =
-  ({ label, displayText }) => (<div className="info-item-full-width">
-    <p className="label">{label}</p>
-    {displayText}
-  </div>);
-
-const InfoItemMultipleWithDefault =
-  ({ label, displayText, defaultValue }) => (<div className="info-item-full-width">
-    <p className="label">{label}</p>
-    {displayText.length ? displayText : defaultValue}
-  </div>);
+import InfoItem from './InfoItem';
 
 const createAddressLineElement =
   addressLine => ({ id: shortid.generate(), value: addressLine });
@@ -89,28 +57,55 @@ const HotelInfoPanel =
       roomType,
       additions,
       selectedAdditions,
-    }) => (
-      <div className="info-panel">
-        <InfoItemMultiple label="Address" displayText={getAddressComp(address)} />
-        <InfoItemWithLink label="Phone" displayText={phone} href={`tel:${phone}`} />
-        <InfoItemWithLink label="Email" displayText={email} href={`mailto:${email}`} />
-        {getProfileImageUrlComp(profileImageUrl)}
-        <InfoItem label="Reference" displayText={reference} />
-        <InfoItemFullWidth label="Room Type" displayText={roomType} />
-        <InfoItemMultipleWithDefault
-          label="Additions"
-          displayText={getSelectedAdditionsComp(selectedAdditions, additions)
-            .filter(ad => (ad !== null))}
-          defaultValue="None"
-        />
-        <InfoItem label="Booking ID" displayText={bookingId} />
-        <InfoItem
-          label="Total Rate"
-          displayText={currencyFormatter.format(totalRoomRate, { code: currency })}
-        />
-        <CollapsibleInfo title="Cancellation policy" info={cancelAmendTerms} />
-      </div>
-    );
+    }) => {
+      const includedAdditions = getSelectedAdditionsComp(selectedAdditions, additions)
+        .filter(ad => (ad !== null));
+      return (
+        <div className="info-panel">
+          <InfoItem
+            label="Address"
+            displayText={getAddressComp(address)}
+            fullWidth
+          />
+          <InfoItem
+            label="Phone"
+            displayText={phone}
+            href={`tel:${phone}`}
+          />
+          <InfoItem
+            label="Email"
+            displayText={email}
+            href={`mailto:${email}`}
+          />
+          {getProfileImageUrlComp(profileImageUrl)}
+          <InfoItem
+            label="Reference"
+            displayText={reference}
+          />
+          <InfoItem
+            label="Room Type"
+            displayText={roomType}
+            fullWidth
+          />
+          <InfoItem
+            label="Additions"
+            displayText={includedAdditions.length ? includedAdditions : 'None'}
+          />
+          <InfoItem
+            label="Booking ID"
+            displayText={bookingId}
+          />
+          <InfoItem
+            label="Total Rate"
+            displayText={currencyFormatter.format(totalRoomRate, { code: currency })}
+          />
+          <CollapsibleInfo
+            title="Cancellation policy"
+            info={cancelAmendTerms}
+          />
+        </div>
+      );
+    };
 
 HotelInfoPanel.propTypes = {
   reference: PropTypes.string.isRequired,
@@ -125,33 +120,6 @@ HotelInfoPanel.propTypes = {
   roomType: PropTypes.string.isRequired,
   additions: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   selectedAdditions: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-};
-
-InfoItemWithLink.propTypes = {
-  label: PropTypes.string.isRequired,
-  displayText: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
-};
-
-InfoItem.propTypes = {
-  label: PropTypes.string.isRequired,
-  displayText: PropTypes.string.isRequired,
-};
-
-InfoItemFullWidth.propTypes = {
-  label: PropTypes.string.isRequired,
-  displayText: PropTypes.string.isRequired,
-};
-
-InfoItemMultiple.propTypes = {
-  label: PropTypes.string.isRequired,
-  displayText: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-};
-
-InfoItemMultipleWithDefault.propTypes = {
-  label: PropTypes.string.isRequired,
-  displayText: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  defaultValue: PropTypes.string.isRequired,
 };
 
 HotelInfoPanel.defaultProps = {

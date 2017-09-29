@@ -12,22 +12,23 @@ import properties from '../properties.json';
 const renderVehicleDetails =
   (booking) => {
     if (booking) {
-      return (<div>
-        <VehicleDetailHeader
-          pickupLocation={booking.product.details.pickUp.location.name}
-          vendor={booking.product.subProducts[0].details.vendor}
-        />
-        <VehicleInfoPanel
-          id={booking.id}
-          currency={booking.product.subProducts[0].details.totalEstimatedCost.preferred.currency}
-          totalFare={booking.product.subProducts[0].details.totalEstimatedCost.preferred.amount}
-          pickUp={booking.product.details.pickUp}
-          dropOff={booking.product.details.dropOff}
-          model={booking.product.subProducts[0].details.model}
-          imageUrl={booking.product.subProducts[0].details.imageUrl}
-        />
-        <a href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`} className="external-link">View this booking in travel.cloud</a>
-      </div>);
+      return (
+        <div>
+          <VehicleDetailHeader
+            pickupLocation={booking.product.details.pickUp.location.name}
+            vendor={booking.product.subProducts[0].details.vendor}
+          />
+          <VehicleInfoPanel
+            id={booking.id}
+            currency={booking.product.subProducts[0].details.totalEstimatedCost.preferred.currency}
+            totalFare={booking.product.subProducts[0].details.totalEstimatedCost.preferred.amount}
+            pickUp={booking.product.details.pickUp}
+            dropOff={booking.product.details.dropOff}
+            model={booking.product.subProducts[0].details.model}
+            imageUrl={booking.product.subProducts[0].details.imageUrl}
+          />
+          <a href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`} className="external-link">View this booking in travel.cloud</a>
+        </div>);
     }
     return <p>loading...</p>;
   };

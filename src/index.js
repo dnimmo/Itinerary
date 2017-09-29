@@ -31,8 +31,6 @@ if (window.location.href.includes('sign-in')) {
     bookingsReducer,
     upcomingCalendarReducer,
     profileReducer,
-    // authReducer,
-    // navigationReducer,
   });
 
   const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware)));

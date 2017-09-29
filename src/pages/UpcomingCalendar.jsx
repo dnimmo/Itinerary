@@ -58,16 +58,6 @@ const UpcomingCalendar =
       updateProfileRequested();
       fetchProfile(updateProfile);
     }
-    const updatePosition =
-        () => {
-          // const node = document.querySelector('.upcoming-calendar');
-          // const nodeHeight = node.scrollHeight;
-          // const newPosition = node.scrollTop + node.clientHeight;
-          // const hasDecreased = (newPosition / nodeHeight) * 100 < scrollPosition;
-          // const position = newPosition;
-          // console.log(hasDecreased);
-          // updateScrollPosition({ nodeHeight, position });
-        };
 
     const refreshAllBookings = () => {
       if (navigator.onLine) {
@@ -84,12 +74,16 @@ const UpcomingCalendar =
       }
     };
 
-
     return (
       bookings
         ? (
-          <div className="upcoming-calendar" onScroll={updatePosition}>
-            <Toolbar profile={profile} refreshBookings={refreshAllBookings} monthsWithBookings={monthsWithBookings} loading={bookingsFetched === 'REQUESTED'} />
+          <div className="upcoming-calendar">
+            <Toolbar
+              profile={profile}
+              refreshBookings={refreshAllBookings}
+              monthsWithBookings={monthsWithBookings}
+              loading={bookingsFetched === 'REQUESTED'}
+            />
             <RefreshingPanel refreshing={bookingsFetched === 'REQUESTED'} />
             <CardPanel bookings={bookings} refreshing={bookingsFetched === 'REQUESTED'} />
             <div className="anchor" />

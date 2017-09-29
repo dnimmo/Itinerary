@@ -21,8 +21,14 @@ const InfoItemFullWidth =
 const mapLegs =
   (journey, routeRestriction) => journey.legs.map(leg => (
     <div className="info-panel" key={leg.id}>
-      <InfoItem label="Depart" displayText={`${leg.depart.location.name} (${leg.depart.location.crs}) @ ${moment(leg.depart.dateTime).format('HHmm')}`} />
-      <InfoItem label="Arrive" displayText={`${leg.arrive.location.name} (${leg.arrive.location.crs}) @ ${moment(leg.arrive.dateTime).format('HHmm')}`} />
+      <InfoItem
+        label="Depart"
+        displayText={`${leg.depart.location.name} (${leg.depart.location.crs}) @ ${moment(leg.depart.dateTime).format('HHmm')}`}
+      />
+      <InfoItem
+        label="Arrive"
+        displayText={`${leg.arrive.location.name} (${leg.arrive.location.crs}) @ ${moment(leg.arrive.dateTime).format('HHmm')}`}
+      />
       <InfoItem label="Duration" displayText={`${leg.travelTimeMinutes}m`} />
       <InfoItem label="Ticket Type" displayText={journey.ticketType.name} />
       <InfoItem label="Operator" displayText={leg.serviceProvider.name} />

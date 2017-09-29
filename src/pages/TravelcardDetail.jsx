@@ -12,20 +12,24 @@ import properties from '../properties.json';
 const renderTravelcardDetails =
   (booking) => {
     if (booking) {
-      return (<div>
-        <TravelcardDetailHeader
-          ticketType={booking.product.subProducts[0].details.name}
-        />
-        <TravelcardInfoPanel
-          id={booking.id}
-          ctrReference={booking.product.subProducts[0].details.ctrReference}
-          currency={booking.product.subProducts[0].details.totalEstimatedCost.preferred.currency}
-          totalFare={booking.product.subProducts[0].details.totalEstimatedCost.preferred.amount}
-        />
-        <a href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`} className="external-link">View this booking in travel.cloud</a>
-      </div>);
+      return (
+        <div>
+          <TravelcardDetailHeader
+            ticketType={booking.product.subProducts[0].details.name}
+          />
+          <TravelcardInfoPanel
+            id={booking.id}
+            ctrReference={booking.product.subProducts[0].details.ctrReference}
+            currency={booking.product.subProducts[0].details.totalEstimatedCost.preferred.currency}
+            totalFare={booking.product.subProducts[0].details.totalEstimatedCost.preferred.amount}
+          />
+          <a
+            href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`}
+            className="external-link"
+          >View this booking in travel.cloud</a>
+        </div>);
     }
-    return <p>loading...</p>;
+    return <p>Loading...</p>;
   };
 
 const TravelcardDetail =

@@ -1,5 +1,4 @@
 import { getToken } from './auth';
-
 import properties from './properties.json';
 
 const url = properties.travelUrl;
@@ -16,6 +15,5 @@ const fetchBookings =
       .then(response => response.json())
       .then(json => updateBookings(json.items));
   };
-
 
 export default fetchBookings;

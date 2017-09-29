@@ -8,7 +8,8 @@ import TrainInfoPanel from '../components/TrainInfoPanel';
 import TrainJourneyDetailsPanel from '../components/TrainJourneyDetailsPanel';
 import properties from '../properties.json';
 import fetchBookings from './../bookings';
-import { updateBookings as updateBookingsFunction, updateRequested as updateRequestedFunction } from '../reducers/bookingsReducer';
+import { updateBookings as updateBookingsFunction,
+  updateRequested as updateRequestedFunction } from '../reducers/bookingsReducer';
 
 const renderTrainDetails =
   (booking) => {

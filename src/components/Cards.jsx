@@ -5,40 +5,40 @@ import Card from './Card';
 import { bookingsToCards } from '../utilities/bookings_utility';
 
 const CardLink =
-(travelType) => {
-  switch (travelType) {
-    case 'HOTEL':
-      return 'hotel-detail';
-    case 'FLIGHT':
-      return 'flight-detail';
-    case 'TRAIN':
-      return 'train-detail';
-    case 'TRAVELCARD':
-      return 'travelcard-detail';
-    case 'VEHICLE':
-      return 'carhire-detail';
-    default:
-      return '';
-  }
-};
+  (travelType) => {
+    switch (travelType) {
+      case 'HOTEL':
+        return 'hotel-detail';
+      case 'FLIGHT':
+        return 'flight-detail';
+      case 'TRAIN':
+        return 'train-detail';
+      case 'TRAVELCARD':
+        return 'travelcard-detail';
+      case 'VEHICLE':
+        return 'carhire-detail';
+      default:
+        return '';
+    }
+  };
 
 const CardImage =
-(travelType) => {
-  switch (travelType) {
-    case 'HOTEL':
-      return 'images/ct-color-hotels.svg';
-    case 'FLIGHT':
-      return 'images/st-color-flights.svg';
-    case 'TRAIN':
-      return 'images/ct-color-trains.svg';
-    case 'TRAVELCARD':
-      return 'images/ct-color-travelcards.svg';
-    case 'VEHICLE':
-      return 'images/ct-color-carhire.svg';
-    default:
-      return '';
-  }
-};
+  (travelType) => {
+    switch (travelType) {
+      case 'HOTEL':
+        return 'images/ct-color-hotels.svg';
+      case 'FLIGHT':
+        return 'images/st-color-flights.svg';
+      case 'TRAIN':
+        return 'images/ct-color-trains.svg';
+      case 'TRAVELCARD':
+        return 'images/ct-color-travelcards.svg';
+      case 'VEHICLE':
+        return 'images/ct-color-carhire.svg';
+      default:
+        return '';
+    }
+  };
 
 const CardComponents =
 cards => (

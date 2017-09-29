@@ -1,14 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
 import shortid from 'shortid';
 import FlightDetailHeader from '../components/FlightDetailHeader';
 import FlightInfoPanel from '../components/FlightInfoPanel';
 import FlightJourneyDetailsPanel from '../components/FlightJourneyDetailsPanel';
 import fetchBookings from './../bookings';
-import { updateBookings as updateBookingsFunction,
-  updateRequested as updateRequestedFunction } from '../reducers/bookings';
 import { getFlightType, FLIGHT_TYPE } from '../utilities/bookings_utility';
 import properties from '../properties.json';
 
@@ -81,15 +77,4 @@ FlightDetail.propTypes = {
   updateRequested: PropTypes.func,
 };
 
-FlightDetail.defaultProps = {
-  bookingID: '0000',
-  updateBookings: updateBookingsFunction,
-  updateRequested: updateRequestedFunction,
-};
-
-export default connect(
-  ({ bookings }) => ({ bookings: bookings.bookings, bookingsFetched: bookings.fetched }),
-  dispatch =>
-    bindActionCreators({ updateBookings: updateBookingsFunction,
-      updateRequested: updateRequestedFunction }, dispatch),
-)(FlightDetail);
+export default FlightDetail;

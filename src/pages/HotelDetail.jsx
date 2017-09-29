@@ -1,12 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
 import HotelDetailHeader from '../components/HotelDetailHeader';
 import HotelInfoPanel from '../components/HotelInfoPanel';
 import fetchBookings from './../bookings';
-import { updateBookings as updateBookingsFunction,
-  updateRequested as updateRequestedFunction } from '../reducers/bookings';
 import properties from '../properties.json';
 
 const renderHotelDetails =
@@ -69,15 +65,4 @@ HotelDetail.propTypes = {
   updateRequested: PropTypes.func,
 };
 
-HotelDetail.defaultProps = {
-  bookingID: '0000',
-  updateBookings: updateBookingsFunction,
-  updateRequested: updateRequestedFunction,
-};
-
-export default connect(
-  ({ bookings }) =>
-    ({ bookings: bookings.bookings, bookingsFetched: bookings.fetched }),
-  dispatch => bindActionCreators(
-    { updateBookings: updateBookingsFunction, updateRequested: updateRequestedFunction }, dispatch),
-)(HotelDetail);
+export default HotelDetail;

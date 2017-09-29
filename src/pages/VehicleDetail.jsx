@@ -1,12 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
 import VehicleDetailHeader from '../components/VehicleDetailHeader';
 import VehicleInfoPanel from '../components/VehicleInfoPanel';
 import fetchBookings from './../bookings';
-import { updateBookings as updateBookingsFunction,
-  updateRequested as updateRequestedFunction } from '../reducers/bookings';
 import properties from '../properties.json';
 
 const renderVehicleDetails =
@@ -34,7 +30,6 @@ const renderVehicleDetails =
   };
 
 const VehicleDetail =
-
   ({ match, bookings, updateBookings, bookingsFetched, updateRequested }) => {
     if (bookingsFetched === 'NO') {
       updateRequested();
@@ -60,15 +55,4 @@ VehicleDetail.propTypes = {
   updateRequested: PropTypes.func,
 };
 
-VehicleDetail.defaultProps = {
-  bookingID: '0000',
-  updateBookings: updateBookingsFunction,
-  updateRequested: updateRequestedFunction,
-};
-
-export default connect(
-  ({ bookings }) =>
-    ({ bookings: bookings.bookings, bookingsFetched: bookings.fetched }),
-  dispatch => bindActionCreators(
-    { updateBookings: updateBookingsFunction, updateRequested: updateRequestedFunction }, dispatch),
-)(VehicleDetail);
+export default VehicleDetail;

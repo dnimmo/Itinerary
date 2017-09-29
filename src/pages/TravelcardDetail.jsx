@@ -1,12 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
 import TravelcardDetailHeader from '../components/TravelcardDetailHeader';
 import TravelcardInfoPanel from '../components/TravelcardInfoPanel';
 import fetchBookings from './../bookings';
-import { updateBookings as updateBookingsFunction,
-  updateRequested as updateRequestedFunction } from '../reducers/bookings';
 import properties from '../properties.json';
 
 const renderTravelcardDetails =
@@ -58,15 +54,4 @@ TravelcardDetail.propTypes = {
   updateRequested: PropTypes.func,
 };
 
-TravelcardDetail.defaultProps = {
-  bookingID: '0000',
-  updateBookings: updateBookingsFunction,
-  updateRequested: updateRequestedFunction,
-};
-
-export default connect(
-  ({ bookings }) =>
-    ({ bookings: bookings.bookings, bookingsFetched: bookings.fetched }),
-  dispatch => bindActionCreators(
-    { updateBookings: updateBookingsFunction, updateRequested: updateRequestedFunction }, dispatch),
-)(TravelcardDetail);
+export default TravelcardDetail;

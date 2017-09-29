@@ -1,6 +1,6 @@
 import React from 'react';
-import Collapsible from 'react-collapsible';
 import PropTypes from 'prop-types';
+import Collapsible from 'react-collapsible';
 import JourneyBar from './TrainJourneyBar';
 import JourneyDetails from './TrainJourneyDetails';
 

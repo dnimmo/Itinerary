@@ -30,7 +30,7 @@ const initialState = {
   fetched: fetched.NO,
 };
 
-export const reducer =
+export const bookings =
   (state = initialState, action) => {
     switch (action.type) {
       case actionTypes.UPDATE_BOOKINGS:
@@ -46,5 +46,3 @@ export const reducer =
         return state;
     }
   };
-
-export default reducer;

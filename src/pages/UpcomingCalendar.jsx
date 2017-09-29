@@ -5,11 +5,11 @@ import { bindActionCreators } from 'redux';
 import Toolbar from '../components/Toolbar';
 import Cards from '../components/Cards';
 import { updateBookings as updateBookingsFunction,
-  updateRequested as updateRequestedFunction } from '../reducers/bookingsReducer';
+  updateRequested as updateRequestedFunction } from '../reducers/bookings';
 import {
-  updateScrollPosition as updateScrollPositionFunction } from '../reducers/upcomingCalendarReducer';
+  updateScrollPosition as updateScrollPositionFunction } from '../reducers/upcomingCalendar';
 import { updateProfile as updateProfileFunction,
-  updateProfileRequested as updateProfileRequestedFunction } from '../reducers/profileReducer';
+  updateProfileRequested as updateProfileRequestedFunction } from '../reducers/profile';
 import fetchBookings from '../bookings';
 import { fetchProfile } from '../profile';
 import { clearTokens, checkForValidToken } from '../auth';
@@ -124,14 +124,16 @@ UpcomingCalendar.defaultProps = {
   updateProfileRequested: updateProfileRequestedFunction,
 };
 
+
+
 export default connect(
-  ({ bookingsReducer, upcomingCalendarReducer, profileReducer }) => ({
-    bookings: bookingsReducer.bookings,
-    monthsWithBookings: bookingsReducer.monthsWithBookings,
-    scrollPosition: upcomingCalendarReducer.scrollPosition,
-    profile: profileReducer.profile,
-    bookingsFetched: bookingsReducer.fetched,
-    profileFetched: profileReducer.fetched,
+  ({ bookings, upcomingCalendar, profile }) => ({
+    bookings: bookings.bookings,
+    monthsWithBookings: bookings.monthsWithBookings,
+    scrollPosition: upcomingCalendar.scrollPosition,
+    profile: profile.profile,
+    bookingsFetched: bookings.fetched,
+    profileFetched: profile.fetched,
   }),
   dispatch => bindActionCreators({ updateBookings: updateBookingsFunction,
     updateScrollPosition: updateScrollPositionFunction,

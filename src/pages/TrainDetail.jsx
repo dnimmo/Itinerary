@@ -9,7 +9,7 @@ import TrainJourneyDetailsPanel from '../components/TrainJourneyDetailsPanel';
 import properties from '../properties.json';
 import fetchBookings from './../bookings';
 import { updateBookings as updateBookingsFunction,
-  updateRequested as updateRequestedFunction } from '../reducers/bookingsReducer';
+  updateRequested as updateRequestedFunction } from '../reducers/bookings';
 
 const renderTrainDetails =
   (booking) => {
@@ -76,8 +76,8 @@ TrainDetail.defaultProps = {
 };
 
 export default connect(
-  ({ bookingsReducer }) =>
-    ({ bookings: bookingsReducer.bookings, bookingsFetched: bookingsReducer.fetched }),
+  ({ bookings }) =>
+    ({ bookings: bookings.bookings, bookingsFetched: bookings.fetched }),
   dispatch => bindActionCreators(
     { updateBookings: updateBookingsFunction, updateRequested: updateRequestedFunction }, dispatch),
 )(TrainDetail);

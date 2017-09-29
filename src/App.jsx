@@ -6,7 +6,7 @@ import HotelDetail from './pages/HotelDetail';
 import TrainDetail from './pages/TrainDetail';
 import TravelcardDetail from './pages/TravelcardDetail';
 import VehicleDetail from './pages/VehicleDetail';
-import LogOut from './pages/LogOut';
+import Logout from './pages/Logout';
 
 const App =
   () => (
@@ -19,7 +19,7 @@ const App =
         <Route path="/train-detail/:bookingID" component={TrainDetail} />
         <Route path="/travelcard-detail/:bookingID" component={TravelcardDetail} />
         <Route path="/carhire-detail/:bookingID" component={VehicleDetail} />
-        <Route path="/log-out" component={LogOut} />
+        <Route path="/log-out" component={Logout} />
       </Switch>
     </div>);
 

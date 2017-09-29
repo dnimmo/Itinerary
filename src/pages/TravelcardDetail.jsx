@@ -6,7 +6,7 @@ import TravelcardDetailHeader from '../components/TravelcardDetailHeader';
 import TravelcardInfoPanel from '../components/TravelcardInfoPanel';
 import fetchBookings from './../bookings';
 import { updateBookings as updateBookingsFunction,
-  updateRequested as updateRequestedFunction } from '../reducers/bookingsReducer';
+  updateRequested as updateRequestedFunction } from '../reducers/bookings';
 import properties from '../properties.json';
 
 const renderTravelcardDetails =
@@ -29,7 +29,7 @@ const renderTravelcardDetails =
           >View this booking in travel.cloud</a>
         </div>);
     }
-    return <p>Loading...</p>;
+    return <p>loading...</p>;
   };
 
 const TravelcardDetail =
@@ -65,8 +65,8 @@ TravelcardDetail.defaultProps = {
 };
 
 export default connect(
-  ({ bookingsReducer }) =>
-    ({ bookings: bookingsReducer.bookings, bookingsFetched: bookingsReducer.fetched }),
+  ({ bookings }) =>
+    ({ bookings: bookings.bookings, bookingsFetched: bookings.fetched }),
   dispatch => bindActionCreators(
     { updateBookings: updateBookingsFunction, updateRequested: updateRequestedFunction }, dispatch),
 )(TravelcardDetail);

@@ -6,7 +6,7 @@ import HotelDetailHeader from '../components/HotelDetailHeader';
 import HotelInfoPanel from '../components/HotelInfoPanel';
 import fetchBookings from './../bookings';
 import { updateBookings as updateBookingsFunction,
-  updateRequested as updateRequestedFunction } from '../reducers/bookingsReducer';
+  updateRequested as updateRequestedFunction } from '../reducers/bookings';
 import properties from '../properties.json';
 
 const renderHotelDetails =
@@ -76,8 +76,8 @@ HotelDetail.defaultProps = {
 };
 
 export default connect(
-  ({ bookingsReducer }) =>
-    ({ bookings: bookingsReducer.bookings, bookingsFetched: bookingsReducer.fetched }),
+  ({ bookings }) =>
+    ({ bookings: bookings.bookings, bookingsFetched: bookings.fetched }),
   dispatch => bindActionCreators(
     { updateBookings: updateBookingsFunction, updateRequested: updateRequestedFunction }, dispatch),
 )(HotelDetail);

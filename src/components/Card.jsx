@@ -109,5 +109,5 @@ Card.defaultProps = {
 };
 
 export default connect(
-  ({ bookingsReducer }) => ({ bookings: bookingsReducer.bookings }),
+  ({ bookings }) => ({ bookings: bookings.bookings }),
 )(Card);

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Card from './Card';
-import { bookingsToCards } from '../utilities/bookings__utility';
+import { bookingsToCards } from '../utilities/bookings_utility';
 
 const CardLink =
 (travelType) => {

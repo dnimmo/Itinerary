@@ -9,7 +9,7 @@ import FlightJourneyDetailsPanel from '../components/FlightJourneyDetailsPanel';
 import fetchBookings from './../bookings';
 import { updateBookings as updateBookingsFunction,
   updateRequested as updateRequestedFunction } from '../reducers/bookingsReducer';
-import { getFlightType, FLIGHT_TYPE } from '../utilities/bookings__utility';
+import { getFlightType, FLIGHT_TYPE } from '../utilities/bookings_utility';
 import properties from '../properties.json';
 
 const finalArrival = segments => (segments[segments.length - 1].arrive.location.name);

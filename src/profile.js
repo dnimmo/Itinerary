@@ -1,7 +1,5 @@
 import md5 from 'js-md5';
-
 import { getToken } from './auth';
-
 import properties from './properties.json';
 
 const url = properties.usersUrl;
@@ -11,7 +9,6 @@ const gravatar =
     const hash = md5((primaryEmailAddress || emailAddress || '').trim().toLowerCase());
     return `https://www.gravatar.com/avatar/${hash}?r=g&s=${size}&d=mm`;
   };
-
 
 const fetchProfile =
   (updateProfile) => {
@@ -24,7 +21,6 @@ const fetchProfile =
     fetch(url, params).then(response => response.json())
       .then(json => updateProfile({ ...json, image: gravatar(json, 30) }));
   };
-
 
 export {
   fetchProfile,

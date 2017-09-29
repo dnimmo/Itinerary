@@ -1,4 +1,4 @@
-import { bookingsToCards } from '../utilities/bookings__utility';
+import { bookingsToCards } from '../utilities/bookings_utility';
 
 export const actionTypes = {
   UPDATE_BOOKINGS: 'UPDATE_BOOKINGS',

@@ -9,8 +9,6 @@ const getRefreshIconClasses = (loading) => {
 };
 
 const hackyScrollToSelectedMonthFunc = () => {
-  // TODO: Improve hackyScrollToSelectedMonthFunc implementation
-  // Yes, we are fully aware of how much of a hack this is. Thank you for your patience. :) 
   const monthSelect = document.getElementById('monthSelection');
   const selectedMonth = monthSelect.options[monthSelect.selectedIndex].innerText.replace(' ', '');
   const fixedHeight = 65;

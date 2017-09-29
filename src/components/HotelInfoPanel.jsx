@@ -4,11 +4,20 @@ import shortid from 'shortid';
 import currencyFormatter from 'currency-formatter';
 import CollapsibleInfo from './CollapsibleInfo';
 
-const InfoItem =
-    ({ label, displayText }) => (<div className="info-item">
+const InfoItemWithLink =
+  ({ label, displayText, href }) =>
+    (<div className="info-item">
       <p className="label">{label}</p>
-      <p>{displayText}</p>
+      <p>
+        {displayText !== 'Not recorded' ? <a href={href}>{displayText}</a> : displayText }
+      </p>
     </div>);
+
+const InfoItem =
+  ({ label, displayText }) => (<div className="info-item">
+    <p className="label">{label}</p>
+    <p>{displayText}</p>
+  </div>);
 
 const InfoItemFullWidth =
   ({ label, displayText }) => (<div className="info-item-full-width">
@@ -83,8 +92,8 @@ const HotelInfoPanel =
     }) => (
       <div className="info-panel">
         <InfoItemMultiple label="Address" displayText={getAddressComp(address)} />
-        <InfoItem label="Phone" displayText={phone} />
-        <InfoItem label="Email" displayText={email} />
+        <InfoItemWithLink label="Phone" displayText={phone} href={`tel:${phone}`} />
+        <InfoItemWithLink label="Email" displayText={email} href={`mailto:${email}`} />
         {getProfileImageUrlComp(profileImageUrl)}
         <InfoItem label="Reference" displayText={reference} />
         <InfoItemFullWidth label="Room Type" displayText={roomType} />
@@ -116,6 +125,12 @@ HotelInfoPanel.propTypes = {
   roomType: PropTypes.string.isRequired,
   additions: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   selectedAdditions: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+};
+
+InfoItemWithLink.propTypes = {
+  label: PropTypes.string.isRequired,
+  displayText: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
 };
 
 InfoItem.propTypes = {

@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import currencyFormatter from 'currency-formatter';
-import InfoItem from './VehicleInfoItem';
-import InfoItemWithImg from './VehicleInfoItemWithImg';
+import InfoItem from './InfoItem';
 
 const getPickUp =
   pickUp => `${moment.utc(pickUp.dateTime).format('HH:mm')} on ${moment.utc(pickUp.dateTime).format('DD/MM/YYYY')}`;
@@ -14,12 +13,27 @@ const getDropOff =
 const VehicleInfoPanel =
   ({ id, currency, totalFare, pickUp, dropOff, model, imageUrl }) => (
     <div className="info-panel">
-      <InfoItemWithImg label="Car Type" displayText={model} imageUrl={imageUrl} />
-      <InfoItem label="Pick-Up" displayText={getPickUp(pickUp)} />
-      <InfoItem label="Pick-Up Location" displayText={pickUp.location.name} />
-      <InfoItem label="Drop Off" displayText={getDropOff(dropOff)} />
-      <InfoItem label="Drop Off Location" displayText={dropOff.location.name} />
-      <InfoItem label="Booking ID" displayText={id} />
+      <InfoItem label="Car Type" displayText={model} imageUrl={imageUrl} />
+      <InfoItem
+        label="Pick-Up"
+        displayText={getPickUp(pickUp)}
+      />
+      <InfoItem
+        label="Pick-Up Location"
+        displayText={pickUp.location.name}
+      />
+      <InfoItem
+        label="Drop Off"
+        displayText={getDropOff(dropOff)}
+      />
+      <InfoItem
+        label="Drop Off Location"
+        displayText={dropOff.location.name}
+      />
+      <InfoItem
+        label="Booking ID"
+        displayText={id}
+      />
       <InfoItem
         label="Total Fare"
         displayText={currencyFormatter.format(totalFare, { code: currency })}

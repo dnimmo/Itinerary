@@ -7,7 +7,7 @@ const InfoItem =
       {
         imageUrl !== ''
           ? <img className="detail-icon" alt="" src={imageUrl} />
-          : ''
+          : null
       }
       <p className="label">{label}</p>
       <p className={emphasise ? 'info-emphasis' : ''}>

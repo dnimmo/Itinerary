@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route, Switch } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import { lifecycle } from 'recompose';
 import UpcomingCalendar from './pages/UpcomingCalendar';
 import FlightDetail from './pages/FlightDetail';
@@ -16,45 +17,49 @@ import { updateProfile, updateProfileRequested } from './reducers/profile';
 import { updateScrollPosition } from './reducers/upcomingCalendar';
 import fetchBookings from './bookings';
 
-const App = (connectedProps) => {
-  console.log('rendered');
-  return (
-    <div className="App">
-      <Switch>
-        <Route
-          exact
-          path="/"
-          render={props => <UpcomingCalendar {...props} {...connectedProps} />}
-        />
-        <Route
-          path="/upcoming-calendar"
-          render={props => <UpcomingCalendar {...props} {...connectedProps} />}
-        />
-        <Route path="/flight-detail/:bookingID" component={FlightDetail} />
-        <Route path="/hotel-detail/:bookingID" component={HotelDetail} />
-        <Route
-          path="/train-detail/:bookingID"
-          render={props => <TrainDetail {...props} {...connectedProps} />}
-        />
-        <Route
-          path="/travelcard-detail/:bookingID"
-          render={props => <TravelcardDetail {...props} {...connectedProps} />}
-        />
-        <Route
-          path="/carhire-detail/:bookingID"
-          render={props => <VehicleDetail {...props} {...connectedProps} />}
-        />
-        <Route path="/log-out" component={Logout} />
-      </Switch>
-    </div>);
-};
+const App = connectedProps => (
+  <div className="App">
+    <Switch>
+      <Route
+        exact
+        path="/"
+        render={props => <UpcomingCalendar {...connectedProps} {...props} />}
+      />
+      <Route
+        path="/upcoming-calendar"
+        render={props => <UpcomingCalendar {...connectedProps} {...props} />}
+      />
+      <Route
+        path="/flight-detail/:bookingID"
+        render={props => <FlightDetail {...connectedProps} {...props} />}
+      />
+      <Route
+        path="/hotel-detail/:bookingID"
+        render={props => <HotelDetail {...connectedProps} {...props} />}
+      />
+      <Route
+        path="/train-detail/:bookingID"
+        render={props => <TrainDetail {...connectedProps} {...props} />}
+      />
+      <Route
+        path="/travelcard-detail/:bookingID"
+        render={props => <TravelcardDetail {...connectedProps} {...props} />}
+      />
+      <Route
+        path="/carhire-detail/:bookingID"
+        render={props => <VehicleDetail {...connectedProps} {...props} />}
+      />
+      <Route path="/log-out" component={Logout} />
+    </Switch>
+  </div>)
+;
 
 App.propTypes = {
   bookings: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   profile: PropTypes.shape({}).isRequired,
   upcomingCalendar: PropTypes.shape({}).isRequired,
   bookingsFetched: PropTypes.string.isRequired,
-  monthsWithBookings: PropTypes.arrayOf().isRequired,
+  monthsWithBookings: PropTypes.arrayOf(PropTypes.string).isRequired,
   scrollPosition: PropTypes.number.isRequired,
   profileFetched: PropTypes.string.isRequired,
   updateBookings: PropTypes.func.isRequired,
@@ -92,4 +97,4 @@ const lifecycleMethods = {
 
 const AppWithLifecycleMethods = lifecycle(lifecycleMethods)(App);
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppWithLifecycleMethods);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AppWithLifecycleMethods));

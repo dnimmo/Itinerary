@@ -2,6 +2,8 @@ import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
+
+// TODO: Refactor TrainJourneyDetails component to use the generalised InfoItem.jsx component
 const InfoItem =
   ({ label, displayText }) => (
     <div className="info-item">

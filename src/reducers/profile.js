@@ -26,7 +26,7 @@ const initialState = {
   fetched: fetched.NO,
 };
 
-export const reducer =
+export const profile =
   (state = initialState, action) => {
     switch (action.type) {
       case actionTypes.UPDATE_PROFILE:
@@ -38,4 +38,3 @@ export const reducer =
     }
   };
 
-export default reducer;

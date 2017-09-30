@@ -34,7 +34,7 @@ const initialState = {
   calendarMonths: [],
 };
 
-export const reducer =
+export const upcomingCalendar =
   (state = initialState, action) => {
     switch (action.type) {
       case actionTypes.SCROLL:
@@ -46,4 +46,3 @@ export const reducer =
     }
   };
 
-export default reducer;

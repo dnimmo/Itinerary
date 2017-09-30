@@ -5,22 +5,21 @@ import JourneyBar from './TrainJourneyBar';
 import JourneyDetails from './TrainJourneyDetails';
 
 const TrainJourneyDetailsPanel =
-  ({ journey, routeRestriction }) => (
-    <div>
-      <Collapsible
-        trigger={
+  ({ journey, routeRestriction }) => [
+    <Collapsible
+      trigger={
 
-          <JourneyBar
-            journey={journey}
-          />
-        }
-      >
-        <JourneyDetails
+        <JourneyBar
           journey={journey}
-          routeRestriction={routeRestriction}
         />
-      </Collapsible>
-    </div>);
+      }
+    >
+      <JourneyDetails
+        journey={journey}
+        routeRestriction={routeRestriction}
+      />
+    </Collapsible>,
+  ];
 
 TrainJourneyDetailsPanel.propTypes = {
   journey: PropTypes.shape({}).isRequired,

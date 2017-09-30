@@ -42,17 +42,13 @@ const mapLegs =
   ));
 
 const journeyscomp =
-  (journey, routeRestriction) => (
-    <div>
-      {mapLegs(journey, routeRestriction)}
-      <br />
-    </div>
-  );
+  (journey, routeRestriction) => [
+    mapLegs(journey, routeRestriction),
+    <br />,
+  ];
 
 const TrainJourneyDetails =
-  ({ journey, routeRestriction }) => (<div>
-    {journeyscomp(journey, routeRestriction)}
-  </div>);
+  ({ journey, routeRestriction }) => journeyscomp(journey, routeRestriction);
 
 InfoItem.propTypes = {
   label: PropTypes.string.isRequired,

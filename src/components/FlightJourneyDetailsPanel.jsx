@@ -6,20 +6,18 @@ import JourneyDetails from './FlightJourneyDetails';
 
 const FlightJourneyDetailsPanel =
   ({ flight, baggageAllowance }) => (
-    <div>
-      <Collapsible
-        trigger={
-          <JourneyBar
-            flight={flight}
-          />
-        }
-      >
-        <JourneyDetails
+    <Collapsible
+      trigger={
+        <JourneyBar
           flight={flight}
-          baggageAllowance={baggageAllowance}
         />
-      </Collapsible>
-    </div>
+      }
+    >
+      <JourneyDetails
+        flight={flight}
+        baggageAllowance={baggageAllowance}
+      />
+    </Collapsible>
   );
 
 FlightJourneyDetailsPanel.propTypes = {

@@ -62,11 +62,7 @@ const mapSegments =
   ));
 
 const flightsComp =
-  (flight, baggageAllowance) => (
-    <div>
-      { mapSegments(flight, baggageAllowance) }
-    </div>
-  );
+  (flight, baggageAllowance) => mapSegments(flight, baggageAllowance);
 
 const FlightJourneyDetails =
   ({ flight, baggageAllowance }) => (

@@ -66,11 +66,14 @@ cards => (
 
 const Cards =
 ({ bookings }) => {
-  const cards = bookings ? bookingsToCards(bookings) : [{}];
+  const cards =
+    bookings
+      ? bookingsToCards(bookings)
+      : [{}];
   return (
     cards.length
       ? <div>{CardComponents(cards)}</div>
-      : <span />
+      : null
   );
 };
 

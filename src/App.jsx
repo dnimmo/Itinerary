@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { lifecycle } from 'recompose';
 import UpcomingCalendar from './pages/UpcomingCalendar';
 import FlightDetail from './pages/FlightDetail';
 import HotelDetail from './pages/HotelDetail';
@@ -15,7 +14,6 @@ import Logout from './pages/Logout';
 import { updateBookings, updateRequested } from './reducers/bookings';
 import { updateProfile, updateProfileRequested } from './reducers/profile';
 import { updateScrollPosition } from './reducers/upcomingCalendar';
-import fetchBookings from './bookings';
 
 const App = connectedProps => (
   <div className="App">
@@ -89,12 +87,4 @@ const mapDispatchToProps =
       updateProfileRequested,
     }, dispatch);
 
-const lifecycleMethods = {
-  componentDidMount() {
-    fetchBookings(this.props.updateBookings);
-  },
-};
-
-const AppWithLifecycleMethods = lifecycle(lifecycleMethods)(App);
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AppWithLifecycleMethods));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

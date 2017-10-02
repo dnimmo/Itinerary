@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Collapsible from 'react-collapsible';
-import JourneyBar from './FlightJourneyBar';
+import JourneyBar from './JourneyBar';
 import JourneyDetails from './FlightJourneyDetails';
 
 const FlightJourneyDetailsPanel =
@@ -9,7 +9,7 @@ const FlightJourneyDetailsPanel =
     <Collapsible
       trigger={
         <JourneyBar
-          flight={flight}
+          segments={flight.segments}
         />
       }
     >

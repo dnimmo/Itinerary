@@ -4,8 +4,32 @@ import shortid from 'shortid';
 import moment from 'moment';
 import JourneySegment from './JourneySegment';
 
+const getProviderName =
+  (journeyType, segment) => {
+    switch (journeyType) {
+      case 'flight':
+        return segment.operatingAirline.name;
+      case 'train':
+        return segment.serviceProvider.name;
+      default:
+        return 'unknown';
+    }
+  };
+
+const getProviderCode =
+  (journeyType, segment) => {
+    switch (journeyType) {
+      case 'flight':
+        return segment.operatingAirline.code;
+      case 'train':
+        return segment.serviceProvider.code;
+      default:
+        return 'unknown';
+    }
+  };
+
 const JourneyBar =
-  ({ segments }) => (
+  ({ segments, journeyType }) => (
     <div className="journey-bar-component">
       <p className="journey-date">
         {`${moment(segments[0].depart.dateTime).format('D')} / ${moment(segments[0].depart.dateTime).format('ddd')}  `}
@@ -16,8 +40,8 @@ const JourneyBar =
           <JourneySegment
             startTime={x.depart.dateTime}
             endTime={x.arrive.dateTime}
-            providerName={x.serviceProvider.name}
-            providerCode={x.serviceProvider.code}
+            providerName={getProviderName(journeyType, x)}
+            providerCode={getProviderCode(journeyType, x)}
           />
         </div>,
       ])}
@@ -27,6 +51,7 @@ const JourneyBar =
 
 JourneyBar.propTypes = {
   segments: PropTypes.arrayOf.isRequired,
+  journeyType: PropTypes.string.isRequired,
 };
 
 export default JourneyBar;

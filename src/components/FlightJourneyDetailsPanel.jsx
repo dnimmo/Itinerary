@@ -10,6 +10,7 @@ const FlightJourneyDetailsPanel =
       trigger={
         <JourneyBar
           segments={flight.segments}
+          journeyType="flight"
         />
       }
     >

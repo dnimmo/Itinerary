@@ -11,6 +11,7 @@ const TrainJourneyDetailsPanel =
 
         <JourneyBar
           segments={journey.legs}
+          journeyType="train"
         />
       }
     >

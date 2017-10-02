@@ -9,18 +9,30 @@
   margin-top: 40px;
 }
 
+.journey-bar {
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  background-color: #DB2645;
+  padding: 10px;
+
+  &.journey-stop {
+    color: rgba(0,0,0,0);
+    height: 21px;
+    padding-top: 23px;
+  }
+}
+
 .journey-item {
+  display: inline-block;
   font-size: 12px;
 
   .journey-bar {
     color: #fff;
+    display: inline-block;
     text-align: center;
     background-color: #DB2645;
     padding: 10px;
-
-  &.journey-stop {
-    color: rgba(0,0,0,0);
-  }
 
   &._VT {
     background-color: #DB2645;

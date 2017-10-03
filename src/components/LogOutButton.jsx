@@ -4,7 +4,7 @@ import { clearTokens } from '../auth';
 
 function logOut() {
   if ('serviceWorker' in navigator) {
-    window.caches.delete('Venusaur-dynamic');
+    window.caches.delete('Charmander-dynamic');
   }
   clearTokens();
   window.location.replace('/');

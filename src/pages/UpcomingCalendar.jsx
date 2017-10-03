@@ -32,7 +32,7 @@ const UpcomingCalendar =
     const refreshAllBookings = () => {
       if (navigator.onLine) {
         if ('serviceWorker' in navigator) {
-          window.caches.delete('Venusaur-dynamic');
+          window.caches.delete('Charmander-dynamic');
         }
         if (!checkForValidToken()) {
           clearTokens();

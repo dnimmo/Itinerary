@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { clearTokens } from '../auth';
+import { serviceWorkerVersion } from '../properties.json';
 
 function logOut() {
   if ('serviceWorker' in navigator) {
-    window.caches.delete('Charmander-dynamic');
+    window.caches.delete(`${serviceWorkerVersion}-dynamic`);
   }
   clearTokens();
   window.location.replace('/');

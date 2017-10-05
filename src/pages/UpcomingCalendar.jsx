@@ -6,6 +6,7 @@ import RefreshingPanel from '../components/RefreshingPanel';
 import fetchBookings from '../bookings';
 import { fetchProfile } from '../profile';
 import { clearTokens, checkForValidToken } from '../auth';
+import { serviceWorkerVersion } from '../properties.json';
 
 const UpcomingCalendar =
   ({
@@ -32,7 +33,7 @@ const UpcomingCalendar =
     const refreshAllBookings = () => {
       if (navigator.onLine) {
         if ('serviceWorker' in navigator) {
-          window.caches.delete('Venusaur-dynamic');
+          window.caches.delete(`${serviceWorkerVersion}-dynamic`);
         }
         if (!checkForValidToken()) {
           clearTokens();

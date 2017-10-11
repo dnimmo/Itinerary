@@ -5,7 +5,7 @@
     "code": "^4.1.0",
     "currency-formatter": "^1.2.1",
     "js-md5": "^0.6.0",
-    "moment": "^2.18.1",
+    "moment": "2.18.1",
     "node-sass-chokidar": "0.0.3",
     "react-collapsible": "^2.0.0",
     "react-redux": "^5.0.6",

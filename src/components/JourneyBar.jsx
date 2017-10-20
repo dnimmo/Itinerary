@@ -31,9 +31,9 @@ const getProviderCode =
 
 const JourneyBar =
   ({ segments, journeyType }) => {
-    const expiredLeg = !hasExpired(segments[0].depart.dateTime);
+    const expiredLeg = hasExpired(segments[0].depart.dateTime);
     return (
-      expiredLeg
+      !expiredLeg
         ? <div className="journey-bar-component">
           <p className="journey-date">
             {`${moment(segments[0].depart.dateTime).format('D')} / ${moment(segments[0].depart.dateTime).format('ddd')}  `}

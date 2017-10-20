@@ -1,5 +1,8 @@
 import moment from 'moment';
 
+const hasExpired =
+  date => moment(date).isBefore();
+
 const bookingToHotelCard =
   ({ id, product }) => {
     const { details, travelType } = product;
@@ -9,6 +12,7 @@ const bookingToHotelCard =
       id,
       propertyName,
       date: moment(checkInDate).add(nightnum, 'd').endOf('day').format(),
+      currentlyActive: hasExpired(moment(checkInDate).add(nightnum, 'd').endOf('day').format()),
       checkInDate,
       checkOutDate,
       address: address.join(', '),
@@ -164,4 +168,9 @@ const getFlightType =
       return FLIGHT_TYPE.ONE_WAY;
     };
 
-export { bookingsToCards, getFlightType, FLIGHT_TYPE };
+export {
+  hasExpired,
+  bookingsToCards,
+  getFlightType,
+  FLIGHT_TYPE,
+};

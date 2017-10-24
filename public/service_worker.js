@@ -1,4 +1,4 @@
-const version = 'Charmander';
+const version = 'Charmeleon';
 const dynamicCacheVersion = `${version}-dynamic`;
 
 const isDynamic = url => url.includes('travel.cloud/users/user/futureBookings');

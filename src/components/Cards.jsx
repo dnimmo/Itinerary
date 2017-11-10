@@ -17,6 +17,8 @@ const CardLink =
         return 'travelcard-detail';
       case 'VEHICLE':
         return 'carhire-detail';
+      case 'AIRPORT_PARKING':
+        return 'airport-parking-detail';
       default:
         return '';
     }
@@ -35,6 +37,8 @@ const CardImage =
         return 'images/ct-color-travelcards.svg';
       case 'VEHICLE':
         return 'images/ct-color-carhire.svg';
+      case 'AIRPORT_PARKING':
+        return 'images/ct-color-parking.svg';
       default:
         return '';
     }

@@ -67,12 +67,13 @@ AirportParkingInfoPanel.propTypes = {
   totalCost: PropTypes.string.isRequired,
   barCode: PropTypes.string,
   currency: PropTypes.string.isRequired,
-  carRegistration: PropTypes.string,
+  carRegistration: PropTypes.string.isRequired,
 };
 
 AirportParkingInfoPanel.defaultProps = {
   email: 'Not recorded',
   phone: 'Not recorded',
+  barCode: 'No barcode present',
 };
 
 export default AirportParkingInfoPanel;

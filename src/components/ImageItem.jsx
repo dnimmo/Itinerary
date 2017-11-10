@@ -5,7 +5,7 @@ const ImageItem =
   ({ label, imageBase64 }) => (
     <div className="info-item">
       <p className="label">{label}</p>
-      <p><img src={'data:image/jpeg;base64, ' + imageBase64} alt="Not provided" /></p>
+      <p><img src={`data:image/jpeg;base64, ${imageBase64}`} alt="Not provided" /></p>
     </div>
   );
 

@@ -43,6 +43,13 @@ const CardDetails =
           <p className="secondary-info dark"> { data.rentalCompanyName } </p>
         </div>
       );
+    case 'AIRPORT_PARKING':
+      return (
+        <div className="booking-text">
+          <p> { moment(data.arrive).format('HH:mm') } { data.name } </p>
+          <p className="secondary-info"> { data.address }  </p>
+        </div>
+      );
     default:
       return <span />;
   }

@@ -10,6 +10,7 @@ import HotelDetail from './pages/HotelDetail';
 import TrainDetail from './pages/TrainDetail';
 import TravelcardDetail from './pages/TravelcardDetail';
 import VehicleDetail from './pages/VehicleDetail';
+import AirportParkingDetail from './pages/AirportParkingDetail';
 import Logout from './pages/Logout';
 import { updateBookings, updateRequested } from './reducers/bookings';
 import { updateProfile, updateProfileRequested } from './reducers/profile';
@@ -46,6 +47,10 @@ const App = connectedProps => (
       <Route
         path="/carhire-detail/:bookingID"
         render={props => <VehicleDetail {...connectedProps} {...props} />}
+      />
+      <Route
+        path="/airport-parking-detail/:bookingID"
+        render={props => <AirportParkingDetail {...connectedProps} {...props} />}
       />
       <Route path="/log-out" component={Logout} />
     </Switch>

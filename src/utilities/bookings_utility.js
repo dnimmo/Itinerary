@@ -123,6 +123,22 @@ const bookingToTravelCardCard =
       }];
     };
 
+const bookingToAirportParkingCard =
+  ({ id, product }) => {
+    const { travelType, serviceDate } = product;
+    return [{
+      id,
+      name: product.subProducts[0].details.name,
+      address: product.subProducts[0].details.information.find(({ title }) => title === 'Address').description,
+      date: moment(serviceDate).endOf('day').format(),
+      dayNumber: moment(serviceDate).format('Do'),
+      arrive: product.details.arriveDateTime,
+      cardId: moment(serviceDate).endOf('month'),
+      travelType,
+      unique: `${id}`,
+    }];
+  };
+
 
 const bookingsToCards =
   (bookings) => {
@@ -138,6 +154,8 @@ const bookingsToCards =
           return bookingToVehicleCard(booking);
         case 'TRAVELCARD':
           return bookingToTravelCardCard(booking);
+        case 'AIRPORT_PARKING':
+          return bookingToAirportParkingCard(booking);
         default:
           return [];
       }

@@ -4,37 +4,37 @@
     "description": "Your travel.cloud bookings are always at hand even when you don't have internet access.",
     "icons":[
         {
-            "src":"36x36.png",
+            "src":"https://static-assets.travel.cloud/favicons/36x36-v2.png",
             "type":"image/png",
             "sizes":"36x36"
         },
         {
-            "src":"48x48.png",
+            "src":"https://static-assets.travel.cloud/favicons/48x48-v2.png",
             "type":"image/png",
             "sizes":"48x48"
         },
         {
-            "src":"72x72.png",
+            "src":"https://static-assets.travel.cloud/favicons/72x72-v2.png",
             "type":"image/png",
             "sizes":"72x72"
         },
         {
-            "src":"96x96.png",
+            "src":"https://static-assets.travel.cloud/favicons/96x96-v2.png",
             "type":"image/png",
             "sizes":"96x96"
         },
         {
-            "src":"144x144.png",
+            "src":"https://static-assets.travel.cloud/favicons/144x144-v2.png",
             "type":"image/png",
             "sizes":"144x144"
         },
         {
-            "src":"192x192.png",
+            "src":"https://static-assets.travel.cloud/favicons/192x192-v2.png",
             "type":"image/png",
             "sizes":"192x192"
         },
         {
-            "src":"512x512.png",
+            "src":"https://static-assets.travel.cloud/favicons/512x512-v2.png",
             "type":"image/png",
             "sizes":"512x512"
         }

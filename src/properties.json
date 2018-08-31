@@ -3,7 +3,7 @@
   "authUrl" : "https://auth.uat.travel.cloud/oauth/authorize?",
   "clientId" : "ab31eaeb",
   "redirectUri" : "redirect_uri=http://localhost:3000/sign-in",
-  "serviceWorkerVersion": "Charizard",
+  "serviceWorkerVersion": "Squirtle",
   "travelUrl" : "https://travel.uat.travel.cloud/users/user/futureBookings",
   "usersUrl" : "https://users.uat.travel.cloud/users/user/profile"
 }

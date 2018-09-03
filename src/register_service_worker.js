@@ -8,6 +8,8 @@ const isLocalhost = Boolean(
     ),
 );
 
+const iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+
 function registerValidSW(swUrl) {
   navigator.serviceWorker
     .register(swUrl)
@@ -66,7 +68,7 @@ function checkValidServiceWorker(swUrl) {
 }
 
 export default function register() {
-  if ('serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator && !iOS) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location);
     if (publicUrl.origin !== window.location.origin) {
@@ -91,7 +93,7 @@ export default function register() {
 }
 
 export function unregister() {
-  if ('serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator && !iOS) {
     navigator.serviceWorker.ready.then((registration) => {
       registration.unregister();
     });

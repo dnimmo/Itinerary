@@ -1,14 +1,13 @@
-# Itinerary by travel.cloud
+# Itinerary, by travel.cloud
 
-Your travel.cloud bookings are always at hand, even when you don't have Internet access.
-
-# Setup
-Run `npm i` to install project dependencies.
 # Development
-Run `npm start` to start the development environment on `localhost:3000`. In order to develop locally, you will need a client ID. Currently, client ID's are issued on request by contacting engineering@travel.cloud.
-# Deployment
-Run `npm run build` to run a full build of the application. The contents of `/public` are to be served as a static site.
 
-If you have not applied for a client ID, you can still raise issues and submit improvements. We are open to any feedback and suggestions.
+Pre-requisite: Elm 0.19 (https://guide.elm-lang.org/install.html)
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+To build the app, you need to compile src/Main.elm to public/itinerary.js. Do this with:
+
+```elm make src/Main.elm --output=public/itinerary.js```
+
+For development, you'll probably want to add the `--debug` flag, but if you're finished development and want to upload, use `--optimize`.
+
+For a live-reload environment, you can use elm-live. Install it globally with npm install -g elm-live, and then start it with ```elm-live --dir public -- src/Main.elm --output=public/itinerary.js --debug```

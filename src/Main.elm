@@ -96,7 +96,7 @@ view model =
 
 init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url navKey =
-    update (ChangedUrl url) { key = navKey, state = ViewingUpcomingBookings }
+    update (ChangedUrl url) { key = navKey, state = NotLoggedIn }
 
 
 

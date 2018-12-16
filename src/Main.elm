@@ -2,9 +2,11 @@ module Main exposing (main)
 
 import Browser exposing (Document, UrlRequest(..))
 import Browser.Navigation as Nav
-import Html exposing (text)
+import Html exposing (Html, br, div, p, text)
+import Html.Attributes exposing (class)
 import Url exposing (Url)
-
+import View.Header as Header
+import Page.UpcomingBookings as UpcomingBookings
 
 
 -- MODEL
@@ -12,7 +14,15 @@ import Url exposing (Url)
 
 type alias Model =
     { key : Nav.Key
+    , state : State
     }
+
+
+type State
+    = NotLoggedIn
+    | ViewingUpcomingBookings
+    | ViewingIndividualBooking
+    | ViewingLogOutOptions
 
 
 
@@ -33,10 +43,50 @@ update msg model =
 -- VIEW
 
 
+notLoggedInView =
+    div
+        [ class "notLoggedInMessage" ]
+        [ p
+            []
+            [ text "To find your upcoming bookings, we need you to be logged in."
+            , br [] []
+            , text "Please wait to be re-directed to our login page."
+            ]
+        ]
+
+
+placeholderView =
+    text "Coming soon probably :D"
+
+
+emptyNode : Html msg
+emptyNode =
+    text ""
+
+
 view : Model -> Document Msg
 view model =
     { title = "Itinerary, by travel.cloud"
-    , body = [text "Welcome to the future of Click's Front-End development <3"]
+    , body =
+        [ case model.state of
+            NotLoggedIn ->
+                emptyNode
+
+            _ ->
+                Header.view
+        , case model.state of
+            NotLoggedIn ->
+                notLoggedInView
+
+            ViewingUpcomingBookings ->
+                UpcomingBookings.view
+
+            ViewingIndividualBooking ->
+                placeholderView
+
+            ViewingLogOutOptions ->
+                placeholderView
+        ]
     }
 
 
@@ -46,7 +96,7 @@ view model =
 
 init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url navKey =
-    update (ChangedUrl url) { key = navKey }
+    update (ChangedUrl url) { key = navKey, state = ViewingUpcomingBookings }
 
 
 

@@ -4,9 +4,11 @@ import Browser exposing (Document, UrlRequest(..))
 import Browser.Navigation as Nav
 import Html exposing (Html, br, div, p, text)
 import Html.Attributes exposing (class)
+import Page.NotLoggedIn as NotLoggedIn
+import Page.UpcomingBookings as UpcomingBookings
 import Url exposing (Url)
 import View.Header as Header
-import Page.UpcomingBookings as UpcomingBookings
+
 
 
 -- MODEL
@@ -43,18 +45,6 @@ update msg model =
 -- VIEW
 
 
-notLoggedInView =
-    div
-        [ class "notLoggedInMessage" ]
-        [ p
-            []
-            [ text "To find your upcoming bookings, we need you to be logged in."
-            , br [] []
-            , text "Please wait to be re-directed to our login page."
-            ]
-        ]
-
-
 placeholderView =
     text "Coming soon probably :D"
 
@@ -76,7 +66,7 @@ view model =
                 Header.view
         , case model.state of
             NotLoggedIn ->
-                notLoggedInView
+                NotLoggedIn.view
 
             ViewingUpcomingBookings ->
                 UpcomingBookings.view
@@ -96,7 +86,7 @@ view model =
 
 init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url navKey =
-    update (ChangedUrl url) { key = navKey, state = NotLoggedIn }
+    update (ChangedUrl url) { key = navKey, state = ViewingUpcomingBookings }
 
 
 

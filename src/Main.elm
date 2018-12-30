@@ -2,8 +2,11 @@ module Main exposing (main)
 
 import Browser exposing (Document, UrlRequest(..))
 import Browser.Navigation as Nav
+import Data.Bookings exposing (Booking, BookingsResponse, bookingsResponseDecoder)
 import Html exposing (Html, br, div, p, text)
 import Html.Attributes exposing (class)
+import Http
+import Page.Error as Error
 import Page.NotLoggedIn as NotLoggedIn
 import Page.UpcomingBookings as UpcomingBookings
 import Url exposing (Url)
@@ -15,7 +18,8 @@ import View.Header as Header
 
 
 type alias Model =
-    { key : Nav.Key
+    { bookings : Maybe (List Booking)
+    , key : Nav.Key
     , state : State
     }
 
@@ -25,6 +29,7 @@ type State
     | ViewingUpcomingBookings
     | ViewingIndividualBooking
     | ViewingLogOutOptions
+    | Failure String
 
 
 
@@ -34,11 +39,52 @@ type State
 type Msg
     = ChangedUrl Url
     | ActivatedLink Browser.UrlRequest
+    | LogInSuccess
+    | BookingsResultReceived (Result Http.Error BookingsResponse)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    ( model, Cmd.none )
+    case msg of
+        LogInSuccess ->
+            ( { model
+                | state = ViewingUpcomingBookings
+              }
+            , getBookings
+            )
+
+        BookingsResultReceived (Ok bookings) ->
+            ( { model
+                | bookings = Just bookings.items
+              }
+            , Cmd.none
+            )
+
+        BookingsResultReceived (Err err) ->
+            ( { model
+                | state =
+                    Failure <|
+                        case err of
+                            Http.Timeout ->
+                                "Request timed out :("
+
+                            Http.NetworkError ->
+                                "Some network error :("
+
+                            Http.BadBody message ->
+                                "Bad payload: " ++ message
+
+                            Http.BadStatus _ ->
+                                "Bad status"
+
+                            Http.BadUrl _ ->
+                                "Bad url"
+              }
+            , Cmd.none
+            )
+
+        _ ->
+            ( model, Cmd.none )
 
 
 
@@ -69,13 +115,16 @@ view model =
                 NotLoggedIn.view
 
             ViewingUpcomingBookings ->
-                UpcomingBookings.view
+                UpcomingBookings.view model.bookings
 
             ViewingIndividualBooking ->
                 placeholderView
 
             ViewingLogOutOptions ->
                 placeholderView
+
+            Failure errorMessage ->
+                Error.view errorMessage
         ]
     }
 
@@ -86,7 +135,11 @@ view model =
 
 init : () -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url navKey =
-    update (ChangedUrl url) { key = navKey, state = ViewingUpcomingBookings }
+    update LogInSuccess
+        { bookings = Nothing
+        , key = navKey
+        , state = NotLoggedIn
+        }
 
 
 
@@ -100,6 +153,18 @@ subscriptions model =
 
 
 -- MAIN
+
+
+apiUrl : String
+apiUrl =
+    "http://localhost:3000/bookings"
+
+
+getBookings =
+    Http.get
+        { url = apiUrl
+        , expect = Http.expectJson BookingsResultReceived bookingsResponseDecoder
+        }
 
 
 main =

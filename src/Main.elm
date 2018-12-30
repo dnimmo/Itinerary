@@ -2,7 +2,7 @@ module Main exposing (main)
 
 import Browser exposing (Document, UrlRequest(..))
 import Browser.Navigation as Nav
-import Data.Bookings exposing (Booking, BookingsResponse, bookingsResponseDecoder)
+import Data.Bookings exposing (Booking, BookingsResponse, bookingsResponseDecoder, includesValidBookings)
 import Html exposing (Html, br, div, p, text)
 import Html.Attributes exposing (class)
 import Http
@@ -55,7 +55,12 @@ update msg model =
 
         BookingsResultReceived (Ok bookings) ->
             ( { model
-                | bookings = Just bookings.items
+                | bookings =
+                    if includesValidBookings bookings then
+                        Just bookings.items
+
+                    else
+                        Nothing
               }
             , Cmd.none
             )

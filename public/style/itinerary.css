@@ -88,6 +88,19 @@ body {
 
 /* UPCOMING CALENDAR */
 
+.calendar-card {
+  background-color: #fff;
+  border-radius: 5px;
+  color: #333;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.calendar-card h2 {
+  font-size: 15px;
+}
+
 .refreshing-panel {
   background-color: #B1DD27;
   color: #fff;
@@ -95,13 +108,6 @@ body {
   font-size: 15px;
   text-align: center;
   padding: 5px;
-}
-
-.no-bookings-panel {
-  color: #cccccc;
-  font-size: 25px;
-  margin: 20px;
-  text-align: center;
 }
 
 .no-bookings-panel p.detail {

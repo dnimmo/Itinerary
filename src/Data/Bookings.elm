@@ -1,4 +1,4 @@
-module Data.Bookings exposing (Booker, Booking, BookingsResponse, bookingsResponseDecoder)
+module Data.Bookings exposing (Booker, Booking, BookingsResponse, bookingsResponseDecoder, includesValidBookings)
 
 import Json.Decode as Decode exposing (Decoder, list, string)
 import Json.Decode.Pipeline exposing (optional, required)
@@ -172,3 +172,12 @@ bookingsResponseDecoder : Decoder BookingsResponse
 bookingsResponseDecoder =
     Decode.succeed BookingsResponse
         |> required "items" (Decode.list bookingDecoder)
+
+
+
+--
+
+
+includesValidBookings : BookingsResponse -> Bool
+includesValidBookings bookings =
+    List.length bookings.items > 0

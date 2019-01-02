@@ -3,7 +3,9 @@ module Main exposing (main)
 import Browser exposing (Document, UrlRequest(..))
 import Browser.Navigation as Nav
 import Data.Bookings exposing (Booking, BookingsResponse, bookingsResponseDecoder, includesValidBookings)
-import Html exposing (Html, br, div, p, text)
+import Element exposing (Element, column, el, fill, layout, rgb255, text, width)
+import Element.Background as Background
+import Html exposing (Html, br, div, p)
 import Html.Attributes exposing (class)
 import Http
 import Page.Error as Error
@@ -96,11 +98,12 @@ update msg model =
 -- VIEW
 
 
+placeholderView : Element msg
 placeholderView =
     text "Coming soon probably :D"
 
 
-emptyNode : Html msg
+emptyNode : Element msg
 emptyNode =
     text ""
 
@@ -109,27 +112,34 @@ view : Model -> Document Msg
 view model =
     { title = "Itinerary, by travel.cloud"
     , body =
-        [ case model.state of
-            NotLoggedIn ->
-                emptyNode
+        [ layout
+            [ Background.color <| rgb255 0 173 238 ]
+          <|
+            column
+                [ width fill ]
+                [ if model.state /= NotLoggedIn then
+                    Header.view
 
-            _ ->
-                Header.view
-        , case model.state of
-            NotLoggedIn ->
-                NotLoggedIn.view
+                  else
+                    emptyNode
+                , case model.state of
+                    NotLoggedIn ->
+                        NotLoggedIn.view
 
-            ViewingUpcomingBookings ->
-                UpcomingBookings.view model.bookings
+                    -- ViewingUpcomingBookings ->
+                    --     UpcomingBookings.view model.bookings
 
-            ViewingIndividualBooking ->
-                placeholderView
+                    ViewingIndividualBooking ->
+                        placeholderView
 
-            ViewingLogOutOptions ->
-                placeholderView
+                    ViewingLogOutOptions ->
+                        placeholderView
 
-            Failure errorMessage ->
-                Error.view errorMessage
+                    -- Failure errorMessage ->
+                    --     Error.view errorMessage
+                    _ ->
+                        placeholderView
+                ]
         ]
     }
 

@@ -1,16 +1,17 @@
 module Page.NotLoggedIn exposing (view)
 
-import Html exposing (Html, div, p, text, br)
-import Html.Attributes exposing (class)
+import Element exposing (Element, centerX, centerY, column, padding, paragraph, spacing, text, rgb255)
+import Element.Font as Font
 
-view : Html msg
-view = 
-    div
-        [ class "notLoggedInMessage" ]
-        [ p
-            []
-            [ text "To find your upcoming bookings, we need you to be logged in."
-            , br [] []
-            , text "Please wait to be re-directed to our login page."
-            ]
+view : Element msg
+view =
+    column
+        [ centerX
+        , centerY
+        , padding 50
+        , spacing 20
+        , Font.color <| rgb255 255 255 255
+        ]
+        [ paragraph [ centerX ] [ text "To find your upcoming bookings, we need you to be logged in." ]
+        , paragraph [ centerX ] [ text "Please wait to be re-directed to our login page." ]
         ]

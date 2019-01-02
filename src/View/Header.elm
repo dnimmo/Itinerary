@@ -1,25 +1,47 @@
 module View.Header exposing (view)
 
-import Html exposing (Html, a, button, div, img)
-import Html.Attributes exposing (class, href, src)
+import Element exposing (Element, alignRight, centerX, el, fill, htmlAttribute, mouseOver, padding, rgb255, row, spacing, text, width)
+import Element.Background exposing (color)
+import Element.Border as Border
+import Element.Font as Font
+import Element.Input exposing (button)
+import Html.Attributes exposing (id)
 
 
-view : Html msg
+refreshButton : Element msg
+refreshButton =
+    text "Refresh"
+
+
+logOutButton : Element msg
+logOutButton =
+    text "Log Out"
+
+
+buttonStyles : String -> List (Element.Attribute msg)
+buttonStyles buttonId =
+    [ htmlAttribute <| id buttonId
+    , alignRight
+    , Border.color <| rgb255 0 173 238
+    , Border.width 2
+    , padding 5
+    , mouseOver [ color <| rgb255 0 173 238 ]
+    ]
+
+
+view : Element msg
 view =
-    div
-        [ class "toolbar"
+    row
+        [ color <| rgb255 0 134 183
+        , padding 20
+        , spacing 10
+        , width fill
+        , Font.color <| rgb255 255 255 255
         ]
-        [ -- TODO: Use actual gravatar icons instead of the default anonymous one
-          a
-            [ href "/log-out" ]
-            [ div
-                [ class "icon-exit" ]
-                []
-            ]
+        [ button
+            (buttonStyles "button:Refresh")
+            { onPress = Nothing, label = refreshButton }
         , button
-            [ class "icon-loop2" ]
-            []
-        , img
-            [ src "https://www.gravatar.com/avatar/36a28760443c6b6101bd5d187a101ca0?r=g&s=30&d=mm" ]
-            []
+            (buttonStyles "button:LogOut")
+            { onPress = Nothing, label = logOutButton }
         ]

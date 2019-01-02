@@ -1,12 +1,13 @@
 module Page.UpcomingBookings exposing (view)
 
 import Data.Bookings exposing (Booking)
-import Html exposing (Html, a, div, h1, p, text)
-import Html.Attributes exposing (class, href)
+import Element exposing (Element, centerX, column, el, fill, link, padding, paragraph, rgb255, row, spacing, text, width)
+import Element.Background as Background
+import Element.Font as Font
 import View.HotelCard as HotelCard
 
 
-bookingView : Booking -> Html msg
+bookingView : Booking -> Element msg
 bookingView booking =
     if booking.product.travelType == "HOTEL" then
         HotelCard.view booking
@@ -15,29 +16,50 @@ bookingView booking =
         text "travel type not implemented"
 
 
-noBookingsView : Html msg
+noBookingsView : Element msg
 noBookingsView =
-    div [ class "calendar-card" ]
-        [ p [] [ text "You don't have any upcoming bookings" ]
-        , p [ class "detail" ]
+    column
+        [ Font.color <| rgb255 255 255 255
+        , width fill
+        , padding 30
+        , spacing 20
+        ]
+        [ paragraph []
+            [ text "You don't have any upcoming bookings." ]
+        , paragraph []
             [ text "Once you book some travel on "
-            , a [ href "https://apps.travel.cloud" ] [ text "travel.cloud" ]
+            , link []
+                { url = "https://apps.travel.cloud"
+                , label = text "travel.cloud"
+                }
             , text " your itinerary will appear here."
             ]
         ]
 
 
-view : Maybe (List Booking) -> Html msg
+view : Maybe (List Booking) -> Element msg
 view upcomingBookings =
-    div
-        []
-        [ h1 [] [ text "My upcoming bookings" ]
-        , div [ class "upcoming-calendar" ]
-            (case upcomingBookings of
+    column
+        [ width fill
+        , spacing 30
+        , padding 20
+        ]
+        [ paragraph
+            [ Font.size 35
+            , Font.center
+            , Font.color <| rgb255 255 255 255
+            , Font.underline
+            ]
+            [ text "My upcoming bookings" ]
+        , row
+            [ centerX
+            , width fill
+            ]
+          <|
+            case upcomingBookings of
                 Just bookings ->
                     bookings |> List.map bookingView
 
                 Nothing ->
                     [ noBookingsView ]
-            )
         ]

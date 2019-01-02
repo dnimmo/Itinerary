@@ -1,12 +1,40 @@
 module View.HotelCard exposing (view)
 
 import Data.Bookings exposing (Booking)
-import Html exposing (Html, div, h2, p, text)
-import Html.Attributes exposing (class)
+import Element exposing (Element, centerX, column, el, fill, fillPortion, padding, paragraph, rgb255, row, spacing, text, width)
+import Element.Background as Background
+import Element.Border as Border
+import Element.Font as Font
+import Util.Date exposing (dayAsNumber, monthAsString)
 
 
-view : Booking -> Html msg
+view : Booking -> Element msg
 view booking =
-    div [ class "calendar-card" ]
-        [ h2 [] [ text <| "Stay at " ++ booking.product.details.propertyName ]
+    row
+        [ Background.color <| rgb255 255 255 255
+        , centerX
+        , width fill
+        , spacing 10
+        , padding 10
+        , Border.color <| rgb255 0 134 183
+        , Border.width 2
+        ]
+        [ column
+            [ width <| fillPortion 2
+            ]
+            [ paragraph
+                [ Font.bold
+                ]
+                [ text <| dayAsNumber booking.product.details.checkInDate
+                , text " of "
+                , text <| monthAsString booking.product.details.checkInDate
+                ]
+            ]
+        , column
+            [ spacing 10
+            , width <| fillPortion 8
+            ]
+            [ row [] [ paragraph [ Font.underline ] [ text "Stay at " ] ]
+            , row [] [ paragraph [] [ text booking.product.details.propertyName ] ]
+            ]
         ]

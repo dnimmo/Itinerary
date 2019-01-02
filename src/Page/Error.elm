@@ -1,7 +1,7 @@
 module Page.Error exposing (view) 
 
-import Html exposing (Html, text)
+import Element exposing (Element, text)
 
-view : String -> Html msg 
+view : String -> Element msg 
 view errorMessage =
     text errorMessage

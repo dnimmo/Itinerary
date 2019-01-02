@@ -3,7 +3,7 @@ module Main exposing (main)
 import Browser exposing (Document, UrlRequest(..))
 import Browser.Navigation as Nav
 import Data.Bookings exposing (Booking, BookingsResponse, bookingsResponseDecoder, includesValidBookings)
-import Element exposing (Element, column, el, fill, layout, rgb255, text, width)
+import Element exposing (Element, column, el, fill, layout, rgb255, row, text, width)
 import Element.Background as Background
 import Html exposing (Html, br, div, p)
 import Html.Attributes exposing (class)
@@ -117,28 +117,30 @@ view model =
           <|
             column
                 [ width fill ]
-                [ if model.state /= NotLoggedIn then
-                    Header.view
+                [ row [ width fill ]
+                    [ if model.state /= NotLoggedIn then
+                        Header.view
 
-                  else
-                    emptyNode
-                , case model.state of
-                    NotLoggedIn ->
-                        NotLoggedIn.view
+                      else
+                        emptyNode
+                    ]
+                , row [ width fill ]
+                    [ case model.state of
+                        NotLoggedIn ->
+                            NotLoggedIn.view
 
-                    -- ViewingUpcomingBookings ->
-                    --     UpcomingBookings.view model.bookings
+                        ViewingUpcomingBookings ->
+                            UpcomingBookings.view model.bookings
 
-                    ViewingIndividualBooking ->
-                        placeholderView
+                        ViewingIndividualBooking ->
+                            placeholderView
 
-                    ViewingLogOutOptions ->
-                        placeholderView
+                        ViewingLogOutOptions ->
+                            placeholderView
 
-                    -- Failure errorMessage ->
-                    --     Error.view errorMessage
-                    _ ->
-                        placeholderView
+                        Failure errorMessage ->
+                            Error.view errorMessage
+                    ]
                 ]
         ]
     }

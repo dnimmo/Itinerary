@@ -24,6 +24,7 @@ view booking =
             ]
             [ paragraph
                 [ Font.bold
+                , Font.center
                 ]
                 [ text <| dayAsNumber booking.product.details.checkInDate
                 , text " of "
@@ -35,6 +36,8 @@ view booking =
             , width <| fillPortion 8
             ]
             [ row [] [ paragraph [ Font.underline ] [ text "Stay at " ] ]
-            , row [] [ paragraph [] [ text booking.product.details.propertyName ] ]
+            , row [] [ paragraph [ Font.bold ] [ text booking.product.details.propertyName ] ]
+            , row [] [ text <| "Email: " ++ booking.product.details.emailAddress ]
+            , row [] [ text <| "Telephone: " ++ booking.product.details.telephone ]
             ]
         ]

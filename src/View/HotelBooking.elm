@@ -1,7 +1,7 @@
 module View.HotelBooking exposing (view)
 
 import Data.Bookings exposing (Booking, bookingReference)
-import Data.Hotel exposing (hotelAddress, hotelName)
+import Data.Hotel as Hotel
 import Element exposing (Element, centerX, centerY, column, padding, paragraph, rgb255, spacing, text)
 import Element.Background as Background
 import Element.Font as Font
@@ -34,7 +34,7 @@ view booking =
                 [ centerX
                 , heading 1
                 ]
-                [ text <| "Stay at " ++ hotelName booking ]
+                [ text <| "Stay at " ++ Hotel.name booking ]
             ]
         , column []
             [ title "Booking reference"
@@ -43,6 +43,6 @@ view booking =
         , column [] <|
             title "Address"
                 :: (List.map (\addressLine -> text addressLine) <|
-                        hotelAddress booking
+                        Hotel.address booking
                    )
         ]

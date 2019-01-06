@@ -1,7 +1,7 @@
 module View.HotelCard exposing (view)
 
 import Data.Bookings exposing (Booking)
-import Data.Hotel exposing (hotelName)
+import Data.Hotel as Hotel
 import Element exposing (Element, centerX, column, el, fill, fillPortion, padding, paragraph, rgb255, row, spacing, text, width)
 import Element.Background as Background
 import Element.Border as Border
@@ -40,11 +40,11 @@ view booking viewBookingMsg =
             [ row []
                 [ paragraph [ Font.underline ] [ text "Stay at " ] ]
             , row []
-                [ paragraph [ Font.bold ] [ text <| hotelName booking ] ]
+                [ paragraph [ Font.bold ] [ text <| Hotel.name booking ] ]
             , row []
-                [ text <| "Email: " ++ booking.product.details.emailAddress ]
+                [ text <| "Email: " ++ Hotel.email booking ]
             , row []
-                [ text <| "Telephone: " ++ booking.product.details.telephone ]
+                [ text <| "Telephone: " ++ Hotel.telephone booking ]
             , row []
                 [ ViewBookingButton.view booking viewBookingMsg ]
             ]

@@ -5,12 +5,13 @@ import Element exposing (Element, centerX, column, el, fill, link, padding, para
 import Element.Background as Background
 import Element.Font as Font
 import View.HotelCard as HotelCard
+import Element.Region exposing (heading)
 
 
-bookingView : Booking -> Element msg
-bookingView booking =
+bookingView : Booking -> msg -> Element msg
+bookingView booking viewBookingMsg =
     if booking.product.travelType == "HOTEL" then
-        HotelCard.view booking
+        HotelCard.view booking viewBookingMsg
 
     else
         text "travel type not implemented"
@@ -37,8 +38,8 @@ noBookingsView =
         ]
 
 
-view : Maybe (List Booking) -> Element msg
-view upcomingBookings =
+view : Maybe (List Booking) -> (Booking -> msg) -> Element msg
+view upcomingBookings viewBookingMsg =
     column
         [ width fill
         , spacing 30
@@ -49,6 +50,7 @@ view upcomingBookings =
             , Font.center
             , Font.color <| rgb255 255 255 255
             , Font.underline
+            , heading 1
             ]
             [ text "My upcoming bookings" ]
         , row
@@ -58,7 +60,9 @@ view upcomingBookings =
           <|
             case upcomingBookings of
                 Just bookings ->
-                    bookings |> List.map bookingView
+                    List.map
+                        (\x -> bookingView x (viewBookingMsg x))
+                        bookings
 
                 Nothing ->
                     [ noBookingsView ]

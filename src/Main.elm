@@ -9,6 +9,7 @@ import Html exposing (Html, br, div, p)
 import Html.Attributes exposing (class)
 import Http
 import Page.Error as Error
+import Page.IndividualBooking as IndividualBooking
 import Page.NotLoggedIn as NotLoggedIn
 import Page.UpcomingBookings as UpcomingBookings
 import Url exposing (Url)
@@ -29,7 +30,7 @@ type alias Model =
 type State
     = NotLoggedIn
     | ViewingUpcomingBookings
-    | ViewingIndividualBooking
+    | ViewingIndividualBooking Booking
     | ViewingLogOutOptions
     | Failure String
 
@@ -43,6 +44,8 @@ type Msg
     | ActivatedLink Browser.UrlRequest
     | LogInSuccess
     | BookingsResultReceived (Result Http.Error BookingsResponse)
+    | ViewIndividualBooking Booking
+    | ViewUpcomingBookings
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -90,6 +93,22 @@ update msg model =
             , Cmd.none
             )
 
+        ViewIndividualBooking booking ->
+            ( { model
+                | state =
+                    ViewingIndividualBooking booking
+              }
+            , Cmd.none
+            )
+
+        ViewUpcomingBookings ->
+            ( { model
+                | state =
+                    ViewingUpcomingBookings
+              }
+            , getBookings
+            )
+
         _ ->
             ( model, Cmd.none )
 
@@ -119,7 +138,7 @@ view model =
                 [ width fill ]
                 [ row [ width fill ]
                     [ if model.state /= NotLoggedIn then
-                        Header.view
+                        Header.view ViewUpcomingBookings
 
                       else
                         emptyNode
@@ -130,10 +149,10 @@ view model =
                             NotLoggedIn.view
 
                         ViewingUpcomingBookings ->
-                            UpcomingBookings.view model.bookings
+                            UpcomingBookings.view model.bookings ViewIndividualBooking
 
-                        ViewingIndividualBooking ->
-                            placeholderView
+                        ViewingIndividualBooking booking ->
+                            IndividualBooking.view booking
 
                         ViewingLogOutOptions ->
                             placeholderView

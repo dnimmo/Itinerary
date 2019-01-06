@@ -29,8 +29,8 @@ buttonStyles buttonId =
     ]
 
 
-view : Element msg
-view =
+view : msg -> Element msg
+view refreshMsg =
     row
         [ color <| rgb255 0 134 183
         , padding 20
@@ -40,7 +40,7 @@ view =
         ]
         [ button
             (buttonStyles "button:Refresh")
-            { onPress = Nothing, label = refreshButton }
+            { onPress = Just refreshMsg, label = refreshButton }
         , button
             (buttonStyles "button:LogOut")
             { onPress = Nothing, label = logOutButton }

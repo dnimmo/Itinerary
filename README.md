@@ -1,5 +1,8 @@
 # Itinerary, by travel.cloud
 
+# Temporary extra step (remove once call to actual bookings endpoint has been completed)
+Install `json-server` (`npm i -g json-server`), and run `json-server db.json` from the root of this project. You'll need to keep this command running in order to serve the mock data that the application is using.
+
 # Development
 
 Pre-requisite: Elm 0.19 (https://guide.elm-lang.org/install.html)

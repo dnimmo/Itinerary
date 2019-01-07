@@ -28,9 +28,9 @@ view booking viewBookingMsg =
                 [ Font.bold
                 , Font.center
                 ]
-                [ text <| dayAsNumber booking.product.details.checkInDate
+                [ text <| dayAsNumber <| Hotel.checkInDate booking
                 , text " of "
-                , text <| monthAsString booking.product.details.checkInDate
+                , text <| monthAsString <| Hotel.checkInDate booking
                 ]
             ]
         , column

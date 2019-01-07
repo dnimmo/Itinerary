@@ -22,7 +22,7 @@ monthAsString date =
 
             else if month == "02" then
                 "February"
-
+    
             else if month == "03" then
                 "March"
 

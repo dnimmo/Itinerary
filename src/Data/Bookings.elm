@@ -2,6 +2,7 @@ module Data.Bookings exposing
     ( Booker
     , Booking
     , BookingsResponse
+    , SubProduct
     , bookingReference
     , bookingsResponseDecoder
     , includesValidBookings

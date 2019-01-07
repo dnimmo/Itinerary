@@ -36,13 +36,34 @@ view booking =
                 ]
                 [ text <| "Stay at " ++ Hotel.name booking ]
             ]
-        , column []
-            [ title "Booking reference"
-            , text <| bookingReference booking
-            ]
         , column [] <|
             title "Address"
                 :: (List.map (\addressLine -> text addressLine) <|
                         Hotel.address booking
                    )
+        , column []
+            [ title "Phone"
+            , text <| Hotel.telephone booking
+            ]
+        , column []
+            [ title "Email"
+            , text <| Hotel.email booking
+            ]
+        , column []
+            [ title "Booking reference"
+            , text <| bookingReference booking
+            ]
+        
+        , column []
+            [ title "Room Type"
+            , text <| Hotel.roomType booking
+            ]
+
+        , column [] 
+            <| title "Additions" ::
+             (List.map (\addition -> text addition) <| Hotel.additions booking)
+        
+        -- TODO: Booking ID
+        -- TODO: Total Rate
+        -- TODO: Cancellation policy
         ]

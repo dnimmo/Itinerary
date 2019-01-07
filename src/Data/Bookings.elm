@@ -6,6 +6,7 @@ module Data.Bookings exposing
     , bookingReference
     , bookingsResponseDecoder
     , includesValidBookings
+    , subProduct
     )
 
 import Json.Decode as Decode exposing (Decoder, list, string)
@@ -186,6 +187,11 @@ bookingsResponseDecoder =
 --
 
 
+subProduct : Booking -> Maybe SubProduct
+subProduct booking =
+    List.head booking.product.subProducts
+
+
 includesValidBookings : BookingsResponse -> Bool
 includesValidBookings bookings =
     List.length bookings.items > 0
@@ -194,9 +200,9 @@ includesValidBookings bookings =
 bookingReference : Booking -> String
 bookingReference booking =
     -- Note: This is where you get the reference for hotels, if it turns out that this isn't common across all booking types, move this to Data.Hotel
-    case List.head booking.product.subProducts of
-        Just subProduct ->
-            subProduct.reference
+    case subProduct booking of
+        Just subProd ->
+            subProd.reference
 
         Nothing ->
             "No reference recorded"

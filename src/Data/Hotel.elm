@@ -1,6 +1,6 @@
 module Data.Hotel exposing (additions, address, checkInDate, email, name, roomType, telephone)
 
-import Data.Bookings exposing (Booking, SubProduct)
+import Data.Bookings exposing (Booking, SubProduct, subProduct)
 
 
 address : Booking -> List String
@@ -26,11 +26,6 @@ telephone booking =
 checkInDate : Booking -> String
 checkInDate booking =
     booking.product.details.checkInDate
-
-
-subProduct : Booking -> Maybe SubProduct
-subProduct booking =
-    List.head booking.product.subProducts
 
 
 roomType : Booking -> String

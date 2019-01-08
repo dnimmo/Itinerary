@@ -139,7 +139,7 @@
         "subProducts": [
           {
             "bookingDetails": {
-              "additions": [],
+              "additions": [ "Breakfast (included in price)"],
               "flightAdditions": [],
               "passengerAssistanceDeclined": false,
               "requiredInformation": "[{\"id\":\"department\",\"type\":\"SELECT\",\"label\":\"Department\",\"value\":{\"label\":\"SET\",\"code\":\"SET\"}}]",

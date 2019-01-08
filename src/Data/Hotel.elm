@@ -1,4 +1,4 @@
-module Data.Hotel exposing (additions, address, checkInDate, email, name, roomType, telephone)
+module Data.Hotel exposing (additions, address, checkInDate, checkOutDate, email, name, roomType, telephone)
 
 import Data.Bookings exposing (Booking, SubProduct, subProduct)
 
@@ -28,6 +28,11 @@ checkInDate booking =
     booking.product.details.checkInDate
 
 
+checkOutDate : Booking -> String
+checkOutDate booking =
+    booking.product.details.checkOutDate
+
+
 roomType : Booking -> String
 roomType booking =
     case subProduct booking of
@@ -42,10 +47,11 @@ additions : Booking -> List String
 additions booking =
     case subProduct booking of
         Just subProd ->
-            if List.length subProd.bookingDetails.additions > 1 then 
-                subProd.bookingDetails.additions 
-            else 
-            [ "None" ]
+            if List.length subProd.bookingDetails.additions > 0 then
+                subProd.bookingDetails.additions
+
+            else
+                [ "None" ]
 
         Nothing ->
             [ "None" ]

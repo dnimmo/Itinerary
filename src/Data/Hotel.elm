@@ -1,4 +1,4 @@
-module Data.Hotel exposing (additions, address, checkInDate, checkOutDate, email, name, roomType, telephone)
+module Data.Hotel exposing (additions, address, cancellationPolicy, checkInDate, checkOutDate, email, name, roomType, telephone, totalCost)
 
 import Data.Bookings exposing (Booking, SubProduct, subProduct)
 
@@ -55,3 +55,29 @@ additions booking =
 
         Nothing ->
             [ "None" ]
+
+
+totalCost : Booking -> String
+totalCost booking =
+    case subProduct booking of
+        Just subProd ->
+            let
+                costInfo =
+                    subProd.details.roomRate.preferred
+            in
+            costInfo.amount
+                ++ " "
+                ++ costInfo.currency
+
+        Nothing ->
+            "No total cost recorded"
+
+
+cancellationPolicy : Booking -> String
+cancellationPolicy booking =
+    case subProduct booking of 
+        Just subProd -> 
+            subProd.details.cancelAmendTerms
+
+        Nothing -> 
+            "No cancellation policy recorded"

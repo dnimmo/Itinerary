@@ -1,7 +1,7 @@
 { 
   "bookings": {
-  "count": 1,
-  "totalCount": 1,
+  "count": 3,
+  "totalCount": 3,
   "items": [
     {
       "booker": {
@@ -70,6 +70,494 @@
           },
           "checkInDate": "2019-01-10",
           "checkOutDate": "2018-01-15",
+          "countryCode": "GB",
+          "deliveryOptions": [],
+          "distance": 0.042677740133348706,
+          "emailAddress": "rooms@hiebirminghamcity.com",
+          "geocode": {
+            "latitude": 52.477463,
+            "longitude": -1.906516
+          },
+          "holdable": false,
+          "minRate": {
+            "billing": {
+              "amount": "10.80",
+              "currency": "GBP"
+            },
+            "preferred": {
+              "amount": "10.80",
+              "currency": "GBP"
+            },
+            "supplier": {
+              "amount": "10.80",
+              "currency": "GBP"
+            }
+          },
+          "minThreeStarRate": {
+            "billing": {
+              "amount": "29.75",
+              "currency": "GBP"
+            },
+            "preferred": {
+              "amount": "29.75",
+              "currency": "GBP"
+            },
+            "supplier": {
+              "amount": "29.75",
+              "currency": "GBP"
+            }
+          },
+          "profileImage": {
+            "urls": []
+          },
+          "propertyName": "Holiday Inn Express Birmingham City Centre",
+          "starRating": "UNKNOWN",
+          "supportedBillbackOptions": {
+            "breakfast": true,
+            "mealSupplement": true,
+            "parking": false,
+            "roomRate": true,
+            "wifi": false
+          },
+          "telephone": "+441215161990",
+          "type": "HotelProductDetails",
+          "upc": "1235398"
+        },
+        "formOfPayment": {
+          "associatedCostType": "billing",
+          "chargeRoutePlan": false,
+          "creditAccountId": "0",
+          "creditAccountName": "travel.cloud team",
+          "id": "0",
+          "status": "ACTIVE",
+          "type": "CREDIT_ACCOUNT"
+        },
+        "id": "0",
+        "searchId": "0",
+        "serviceDate": "2018-12-20",
+        "status": "CONFIRMING",
+        "subProducts": [
+          {
+            "bookingDetails": {
+              "additions": [ "Breakfast (included in price)"],
+              "flightAdditions": [],
+              "passengerAssistanceDeclined": false,
+              "requiredInformation": "[{\"id\":\"department\",\"type\":\"SELECT\",\"label\":\"Department\",\"value\":{\"label\":\"SET\",\"code\":\"SET\"}}]",
+              "requirements": [],
+              "specialRequest": "A room as high up as possible please away from the street",
+              "type": "HotelSubProductBookingDetails"
+            },
+            "channel": "BDC",
+            "details": {
+              "additions": [
+                {
+                  "available": false,
+                  "creditAccountRequired": false,
+                  "description": "Breakfast",
+                  "included": true,
+                  "type": "BREAKFAST"
+                }
+              ],
+              "cancelAmendTerms": "You may cancel free of charge until 16:00 one day before arrival. You will be charged the total price if you cancel after 16:00 one day before arrival.",
+              "estimatedServiceCost": {
+                "billing": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                },
+                "preferred": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                },
+                "supplier": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                }
+              },
+              "features": [],
+              "fees": [],
+              "information": [],
+              "numberOfAdults": 1,
+              "numberOfChildren": 0,
+              "prepay": "NO",
+              "rateType": "STANDARD",
+              "refundable": true,
+              "requirements": [],
+              "roomRate": {
+                "billing": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                },
+                "preferred": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                },
+                "supplier": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                }
+              },
+              "roomType": "Standard Family Room - Booking.com rate",
+              "rules": [],
+              "seatReservations": [],
+              "sentLoyaltySchemes": [],
+              "surcharges": [],
+              "totalEstimatedCost": {
+                "billing": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                },
+                "preferred": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                },
+                "supplier": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                }
+              },
+              "type": "HotelSubProductDetails"
+            },
+            "id": "0",
+            "notes": [],
+            "pin": "2909",
+            "policyComplianceState": "COMPLIANT",
+            "reference": "2061626058",
+            "sfsProductId": "0",
+            "sfsReference": "H260155",
+            "supplierReference": "2061626058",
+            "ticketNumbers": [],
+            "traveller": {
+              "emailAddress": "y@x.com",
+              "firstName": "y",
+              "guest": false,
+              "hasApisDetails": false,
+              "id": "0",
+              "lastName": "x",
+              "organisationId": "a12b6afd-cff9-4a3d-baed-9236d6ee6fd6",
+              "organisationName": "Click Travel",
+              "passengerAssistanceConfigured": false,
+              "registered": true,
+              "userId": "0"
+            }
+          }
+        ],
+        "travelType": "HOTEL"
+      },
+      "refundable": true,
+      "serviceDate": "2018-12-20",
+      "status": "CONFIRMED"
+    },
+    {
+      "booker": {
+        "emailAddress": "x@y.com",
+        "firstName": "X",
+        "id": "1",
+        "lastName": "Y"
+      },
+      "cancellable": true,
+      "confirmedDate": "2018-12-13T15:06:35.412Z",
+      "createdDateTime": "2018-12-13T15:05:58.067Z",
+      "exchangeable": {},
+      "id": "100000000",
+      "paidWithVouchers": false,
+      "payments": {
+        "virtualCard": {
+          "chargedAmount": {
+            "amount": "109.00",
+            "currency": "GBP"
+          },
+          "panHint": "",
+          "paymentId": "1"
+        }
+      },
+      "product": {
+        "bookingDetails": {
+          "billbackOverrides": [],
+          "billingConfiguration": {
+            "selected": "BILLBACK"
+          },
+          "type": "HotelProductBookingDetails"
+        },
+        "createdDate": "2018-12-13T15:04:53.289Z",
+        "details": {
+          "address": [
+            "19 Holliday Street",
+            "Birmingham",
+            "B1 1HH"
+          ],
+          "billingConfiguration": {
+            "billbackElements": {
+              "allCosts": {
+                "enabled": false
+              },
+              "breakfast": {
+                "enabled": true
+              },
+              "mealSupplement": {
+                "allowance": {
+                  "amount": "20.00",
+                  "currency": "GBP"
+                },
+                "enabled": true
+              },
+              "parking": {
+                "enabled": false
+              },
+              "roomRate": {
+                "enabled": true
+              },
+              "wifi": {
+                "enabled": false
+              }
+            },
+            "type": "BILLBACK"
+          },
+          "checkInDate": "2019-01-31",
+          "checkOutDate": "2018-02-02",
+          "countryCode": "GB",
+          "deliveryOptions": [],
+          "distance": 0.042677740133348706,
+          "emailAddress": "rooms@hiebirminghamcity.com",
+          "geocode": {
+            "latitude": 52.477463,
+            "longitude": -1.906516
+          },
+          "holdable": false,
+          "minRate": {
+            "billing": {
+              "amount": "10.80",
+              "currency": "GBP"
+            },
+            "preferred": {
+              "amount": "10.80",
+              "currency": "GBP"
+            },
+            "supplier": {
+              "amount": "10.80",
+              "currency": "GBP"
+            }
+          },
+          "minThreeStarRate": {
+            "billing": {
+              "amount": "29.75",
+              "currency": "GBP"
+            },
+            "preferred": {
+              "amount": "29.75",
+              "currency": "GBP"
+            },
+            "supplier": {
+              "amount": "29.75",
+              "currency": "GBP"
+            }
+          },
+          "profileImage": {
+            "urls": []
+          },
+          "propertyName": "Holiday Inn Express Birmingham City Centre",
+          "starRating": "UNKNOWN",
+          "supportedBillbackOptions": {
+            "breakfast": true,
+            "mealSupplement": true,
+            "parking": false,
+            "roomRate": true,
+            "wifi": false
+          },
+          "telephone": "+441215161990",
+          "type": "HotelProductDetails",
+          "upc": "1235398"
+        },
+        "formOfPayment": {
+          "associatedCostType": "billing",
+          "chargeRoutePlan": false,
+          "creditAccountId": "0",
+          "creditAccountName": "travel.cloud team",
+          "id": "0",
+          "status": "ACTIVE",
+          "type": "CREDIT_ACCOUNT"
+        },
+        "id": "0",
+        "searchId": "0",
+        "serviceDate": "2018-12-20",
+        "status": "CONFIRMING",
+        "subProducts": [
+          {
+            "bookingDetails": {
+              "additions": [ "Breakfast (included in price)"],
+              "flightAdditions": [],
+              "passengerAssistanceDeclined": false,
+              "requiredInformation": "[{\"id\":\"department\",\"type\":\"SELECT\",\"label\":\"Department\",\"value\":{\"label\":\"SET\",\"code\":\"SET\"}}]",
+              "requirements": [],
+              "specialRequest": "A room as high up as possible please away from the street",
+              "type": "HotelSubProductBookingDetails"
+            },
+            "channel": "BDC",
+            "details": {
+              "additions": [
+                {
+                  "available": false,
+                  "creditAccountRequired": false,
+                  "description": "Breakfast",
+                  "included": true,
+                  "type": "BREAKFAST"
+                }
+              ],
+              "cancelAmendTerms": "You may cancel free of charge until 16:00 one day before arrival. You will be charged the total price if you cancel after 16:00 one day before arrival.",
+              "estimatedServiceCost": {
+                "billing": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                },
+                "preferred": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                },
+                "supplier": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                }
+              },
+              "features": [],
+              "fees": [],
+              "information": [],
+              "numberOfAdults": 1,
+              "numberOfChildren": 0,
+              "prepay": "NO",
+              "rateType": "STANDARD",
+              "refundable": true,
+              "requirements": [],
+              "roomRate": {
+                "billing": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                },
+                "preferred": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                },
+                "supplier": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                }
+              },
+              "roomType": "Standard Family Room - Booking.com rate",
+              "rules": [],
+              "seatReservations": [],
+              "sentLoyaltySchemes": [],
+              "surcharges": [],
+              "totalEstimatedCost": {
+                "billing": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                },
+                "preferred": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                },
+                "supplier": {
+                  "amount": "69.00",
+                  "currency": "GBP"
+                }
+              },
+              "type": "HotelSubProductDetails"
+            },
+            "id": "0",
+            "notes": [],
+            "pin": "2909",
+            "policyComplianceState": "COMPLIANT",
+            "reference": "2061626058",
+            "sfsProductId": "0",
+            "sfsReference": "H260155",
+            "supplierReference": "2061626058",
+            "ticketNumbers": [],
+            "traveller": {
+              "emailAddress": "y@x.com",
+              "firstName": "y",
+              "guest": false,
+              "hasApisDetails": false,
+              "id": "0",
+              "lastName": "x",
+              "organisationId": "a12b6afd-cff9-4a3d-baed-9236d6ee6fd6",
+              "organisationName": "Click Travel",
+              "passengerAssistanceConfigured": false,
+              "registered": true,
+              "userId": "0"
+            }
+          }
+        ],
+        "travelType": "HOTEL"
+      },
+      "refundable": true,
+      "serviceDate": "2018-12-20",
+      "status": "CONFIRMED"
+    },
+    {
+      "booker": {
+        "emailAddress": "x@y.com",
+        "firstName": "X",
+        "id": "1",
+        "lastName": "Y"
+      },
+      "cancellable": true,
+      "confirmedDate": "2018-12-13T15:06:35.412Z",
+      "createdDateTime": "2018-12-13T15:05:58.067Z",
+      "exchangeable": {},
+      "id": "100000000",
+      "paidWithVouchers": false,
+      "payments": {
+        "virtualCard": {
+          "chargedAmount": {
+            "amount": "109.00",
+            "currency": "GBP"
+          },
+          "panHint": "",
+          "paymentId": "1"
+        }
+      },
+      "product": {
+        "bookingDetails": {
+          "billbackOverrides": [],
+          "billingConfiguration": {
+            "selected": "BILLBACK"
+          },
+          "type": "HotelProductBookingDetails"
+        },
+        "createdDate": "2018-12-13T15:04:53.289Z",
+        "details": {
+          "address": [
+            "19 Holliday Street",
+            "Birmingham",
+            "B1 1HH"
+          ],
+          "billingConfiguration": {
+            "billbackElements": {
+              "allCosts": {
+                "enabled": false
+              },
+              "breakfast": {
+                "enabled": true
+              },
+              "mealSupplement": {
+                "allowance": {
+                  "amount": "20.00",
+                  "currency": "GBP"
+                },
+                "enabled": true
+              },
+              "parking": {
+                "enabled": false
+              },
+              "roomRate": {
+                "enabled": true
+              },
+              "wifi": {
+                "enabled": false
+              }
+            },
+            "type": "BILLBACK"
+          },
+          "checkInDate": "2019-02-17",
+          "checkOutDate": "2018-02-18",
           "countryCode": "GB",
           "deliveryOptions": [],
           "distance": 0.042677740133348706,

@@ -74,14 +74,14 @@ view booking =
     , row [ spacing 50 ]
         [ column columnStyles
             [ title "Phone"
-            , link []
+            , link [ Font.underline ]
                 { url = "tel:" ++ Hotel.telephone booking
                 , label = text <| Hotel.telephone booking
                 }
             ]
         , column columnStyles
             [ title "Email"
-            , link []
+            , link [ Font.underline ]
                 { url = "mailto:" ++ Hotel.email booking
                 , label = text <| Hotel.email booking
                 }

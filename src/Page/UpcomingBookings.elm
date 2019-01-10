@@ -1,7 +1,7 @@
 module Page.UpcomingBookings exposing (view)
 
 import Data.Bookings exposing (Booking, TravelType(..))
-import Element exposing (Element, centerX, column, el, fill, link, padding, paragraph, rgb255, row, spacing, text, width)
+import Element exposing (Element, centerX, column, el, fill, link, padding, paragraph, rgb255, spacing, text, width)
 import Element.Background as Background
 import Element.Font as Font
 import Element.Region exposing (heading)
@@ -50,12 +50,12 @@ view upcomingBookings viewBookingMsg =
             [ Font.size 35
             , Font.center
             , Font.color <| rgb255 255 255 255
-            , Font.underline
             , heading 1
             ]
             [ text "My upcoming bookings" ]
-        , row
+        , column
             [ centerX
+            , spacing 20
             , width fill
             ]
           <|

@@ -1,6 +1,7 @@
 module Data.Bookings exposing
     ( Booker
     , Booking
+    , TravelType(..)
     , BookingsResponse
     , SubProduct
     , bookingReference
@@ -12,6 +13,10 @@ module Data.Bookings exposing
 import Json.Decode as Decode exposing (Decoder, list, string)
 import Json.Decode.Pipeline exposing (optional, required)
 
+
+type TravelType
+    = Hotel
+    | Flight
 
 
 -- TODO : There are multiple `String`s in here that probably ought to be a custom type
@@ -80,7 +85,7 @@ type alias ProductDetails =
 type alias Product =
     { details : ProductDetails
     , subProducts : List SubProduct
-    , travelType : String
+    , travelType : TravelType
     }
 
 
@@ -152,12 +157,28 @@ subProductDecoder =
         |> required "reference" string
 
 
+travelTypeDecoder : Decoder TravelType
+travelTypeDecoder =
+    Decode.string 
+        |> Decode.andThen
+            (\x -> 
+                case x of 
+                    "FLIGHT" -> 
+                        Decode.succeed Flight
+                        
+                    "HOTEL" -> 
+                        Decode.succeed Hotel
+                        
+                    unknownTravelType -> 
+                        Decode.fail <| "Unknown travel type: " ++ unknownTravelType)
+
+
 productDecoder : Decoder Product
 productDecoder =
     Decode.succeed Product
         |> required "details" productDetailsDecoder
         |> required "subProducts" (list subProductDecoder)
-        |> required "travelType" string
+        |> required "travelType" travelTypeDecoder
 
 
 bookerDecoder : Decoder Booker

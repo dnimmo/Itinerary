@@ -1,6 +1,6 @@
 module Page.IndividualBooking exposing (view)
 
-import Data.Bookings exposing (Booking)
+import Data.Bookings exposing (Booking, TravelType(..))
 import Element exposing (Element, centerX, centerY, column, fill, fillPortion, padding, rgb255, row, spacing, text, width)
 import Element.Background as Background
 import Element.Font as Font
@@ -23,11 +23,12 @@ view booking =
             , spacing 20
             , width <| fillPortion 8
             ]
-            (if booking.product.travelType == "HOTEL" then
-                HotelBooking.view booking
+            (case booking.product.travelType of
+                Hotel ->
+                    HotelBooking.view booking
 
-             else
-                [ text "travel type not implemented" ]
+                _ ->
+                    [ text "travel type not implemented" ]
             )
         , column [ width <| fillPortion 1 ] []
         ]

@@ -5,39 +5,74 @@ import Data.Bookings exposing (Booking, SubProduct, subProduct)
 
 address : Booking -> List String
 address booking =
-    booking.product.details.address
+    case booking.product.details.address of
+        Just hotelAddress ->
+            hotelAddress
+
+        Nothing ->
+            [ "Address not recorded" ]
 
 
 name : Booking -> String
 name booking =
-    booking.product.details.propertyName
+    case booking.product.details.propertyName of
+        Just propertyName ->
+            propertyName
+
+        Nothing ->
+            "Unknown"
 
 
 email : Booking -> String
 email booking =
-    booking.product.details.emailAddress
+    case booking.product.details.emailAddress of
+        Just emailAddress ->
+            emailAddress
+
+        Nothing ->
+            "Not recorded"
 
 
 telephone : Booking -> String
 telephone booking =
-    booking.product.details.telephone
+    case booking.product.details.telephone of
+        Just phoneNumber ->
+            phoneNumber
+
+        Nothing ->
+            "Not recorded"
 
 
 checkInDate : Booking -> String
 checkInDate booking =
-    booking.product.details.checkInDate
+    case booking.product.details.checkInDate of
+        Just date ->
+            date
+
+        Nothing ->
+            "Check-in date not recorded"
 
 
 checkOutDate : Booking -> String
 checkOutDate booking =
-    booking.product.details.checkOutDate
+    case booking.product.details.checkOutDate of
+        Just date ->
+            date
+
+        Nothing ->
+            "Check-out date not recorded"
 
 
 roomType : Booking -> String
 roomType booking =
     case subProduct booking of
         Just subProd ->
-            subProd.details.roomType
+            case subProd.details.roomType of
+                Just room ->
+                    room
+
+                Nothing ->
+                    "No room type specified"
 
         Nothing ->
             "No room type specified"
@@ -47,11 +82,16 @@ additions : Booking -> List String
 additions booking =
     case subProduct booking of
         Just subProd ->
-            if List.length subProd.bookingDetails.additions > 0 then
-                subProd.bookingDetails.additions
+            case subProd.bookingDetails.additions of
+                Just additionsList ->
+                    if List.length additionsList > 0 then
+                        additionsList
 
-            else
-                [ "None" ]
+                    else
+                        [ "None" ]
+
+                Nothing ->
+                    [ "None" ]
 
         Nothing ->
             [ "None" ]
@@ -61,13 +101,14 @@ totalCost : Booking -> String
 totalCost booking =
     case subProduct booking of
         Just subProd ->
-            let
-                costInfo =
-                    subProd.details.roomRate.preferred
-            in
-            costInfo.amount
-                ++ " "
-                ++ costInfo.currency
+            case subProd.details.roomRate of
+                Just roomRate ->
+                    roomRate.preferred.amount
+                        ++ " "
+                        ++ roomRate.preferred.currency
+
+                Nothing ->
+                    "No total cost recorded"
 
         Nothing ->
             "No total cost recorded"
@@ -75,9 +116,14 @@ totalCost booking =
 
 cancellationPolicy : Booking -> String
 cancellationPolicy booking =
-    case subProduct booking of 
-        Just subProd -> 
-            subProd.details.cancelAmendTerms
+    case subProduct booking of
+        Just subProd ->
+            case subProd.details.cancelAmendTerms of
+                Just terms ->
+                    terms
 
-        Nothing -> 
+                Nothing ->
+                    "No cancellation policy recorded"
+
+        Nothing ->
             "No cancellation policy recorded"

@@ -10,6 +10,7 @@ import Html.Attributes exposing (class)
 import Http
 import Page.Error as Error
 import Page.IndividualBooking as IndividualBooking
+import Page.LoadingBookings as LoadingBookings
 import Page.NotLoggedIn as NotLoggedIn
 import Page.UpcomingBookings as UpcomingBookings
 import Url exposing (Url)
@@ -29,6 +30,7 @@ type alias Model =
 
 type State
     = NotLoggedIn
+    | LoadingBookings
     | ViewingUpcomingBookings
     | ViewingIndividualBooking Booking
     | ViewingLogOutOptions
@@ -53,14 +55,15 @@ update msg model =
     case msg of
         LogInSuccess ->
             ( { model
-                | state = ViewingUpcomingBookings
+                | state = LoadingBookings
               }
             , getBookings
             )
 
         BookingsResultReceived (Ok bookings) ->
             ( { model
-                | bookings =
+                | state = ViewingUpcomingBookings
+                , bookings =
                     if includesValidBookings bookings then
                         Just bookings.items
 
@@ -104,7 +107,7 @@ update msg model =
         ViewUpcomingBookings ->
             ( { model
                 | state =
-                    ViewingUpcomingBookings
+                    LoadingBookings
               }
             , getBookings
             )
@@ -147,6 +150,9 @@ view model =
                     [ case model.state of
                         NotLoggedIn ->
                             NotLoggedIn.view
+
+                        LoadingBookings ->
+                            LoadingBookings.view
 
                         ViewingUpcomingBookings ->
                             UpcomingBookings.view model.bookings ViewIndividualBooking

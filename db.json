@@ -1,8 +1,470 @@
 { 
   "bookings": {
-  "count": 3,
-  "totalCount": 3,
+  "count": 4,
+  "totalCount": 4,
   "items": [
+    {
+      "booker": {
+        "emailAddress": "x@y.com",
+        "firstName": "X",
+        "id": "1",
+        "lastName": "Y"
+      },
+      "cancellable": true,
+      "confirmedDate": "2019-01-08T10:28:44.982Z",
+      "createdDateTime": "2019-01-08T10:28:00.013Z",
+      "exchangeable": {},
+      "id": "200083164",
+      "paidWithVouchers": false,
+      "payments": {
+        "virtualCard": {
+          "chargedAmount": {
+            "amount": "23.60",
+            "currency": "GBP"
+          },
+          "panHint": "5559",
+          "paymentId": "087e47a4-e09c-41c5-bddc-a314215c56ee"
+        }
+      },
+      "product": {
+        "createdDate": "2019-01-08T10:27:31.698Z",
+        "details": {
+          "codeshareCarrier": {
+            "code": "U2",
+            "name": "easyJet"
+          },
+          "deliveryOptions": [],
+          "estaRequired": false,
+          "flights": [
+            {
+              "cabinClass": {
+                "code": "R",
+                "name": "ECONOMY"
+              },
+              "id": "TE9OLUVESS0yMDE5LTAxLTEwVDA4OjAwOjAwLTIwMTktMDEtMTBUMDk6MDA6MDAtVTI=",
+              "segments": [
+                {
+                  "aircraft": "BOEING 737",
+                  "arrive": {
+                    "dateTime": "2019-01-10T09:00:00+0000",
+                    "location": {
+                      "code": "EDI",
+                      "countryCode": "GB",
+                      "name": "Edinburgh Airport, Edinburgh, GB",
+                      "timezone": "Europe/London"
+                    }
+                  },
+                  "baggageAllowance": {
+                    "pieces": 1,
+                    "weight": 0.0
+                  },
+                  "cabinClass": {
+                    "code": "R",
+                    "name": "ECONOMY"
+                  },
+                  "depart": {
+                    "dateTime": "2019-01-10T08:00:00+0000",
+                    "location": {
+                      "code": "LON",
+                      "countryCode": "GB",
+                      "name": "London, London, GB",
+                      "timezone": "Europe/London"
+                    }
+                  },
+                  "fareRulesId": "d41d081a82ba65e00ed8639597c6ea1b",
+                  "flightNumber": "5775",
+                  "flightNumbers": [
+                    "5775"
+                  ],
+                  "number": 1,
+                  "operatingAirline": {
+                    "code": "U2",
+                    "name": "easyJet"
+                  },
+                  "segmentId": "vyN3xfCLS+2cKN2mKUbNgQ==",
+                  "travelDistance": 559,
+                  "travelTimeMinutes": 60,
+                  "vendorAirline": {
+                    "code": "U2",
+                    "name": "easyJet"
+                  },
+                  "package": {
+                    "additions": [
+                      {
+                        "description": "This fare is refundable",
+                        "included": true,
+                        "type": "FLEXIBILITY"
+                      },
+                      {
+                        "included": false,
+                        "type": "BAGGAGE"
+                      },
+                      {
+                        "included": false,
+                        "type": "SEAT"
+                      },
+                      {
+                        "included": false,
+                        "type": "GROUND_TRANSPORTATION"
+                      },
+                      {
+                        "included": false,
+                        "type": "LOUNGE"
+                      },
+                      {
+                        "included": false,
+                        "type": "MEDICAL"
+                      },
+                      {
+                        "included": false,
+                        "type": "MEAL_BEVERAGE"
+                      },
+                      {
+                        "included": false,
+                        "type": "PRIORITY_BOARDING"
+                      },
+                      {
+                        "included": false,
+                        "type": "SPORTS_EQUIPMENT"
+                      },
+                      {
+                        "included": false,
+                        "type": "OTHER"
+                      }
+                    ],
+                    "baggageAllowance": {
+                      "pieces": 1,
+                      "weight": 0.0
+                    },
+                    "name": "Flexi - MOC",
+                    "title": "Flexi - MOC"
+                  }
+                }
+              ]
+            },
+            {
+              "cabinClass": {
+                "code": "R",
+                "name": "ECONOMY"
+              },
+              "id": "RURJLUxPTi0yMDE5LTAxLTExVDE3OjAwOjAwLTIwMTktMDEtMTFUMTg6MDA6MDAtVTI=",
+              "segments": [
+                {
+                  "aircraft": "BOEING 737",
+                  "arrive": {
+                    "dateTime": "2019-01-11T18:00:00+0000",
+                    "location": {
+                      "code": "LON",
+                      "countryCode": "GB",
+                      "name": "London, London, GB",
+                      "timezone": "Europe/London"
+                    }
+                  },
+                  "baggageAllowance": {
+                    "pieces": 1,
+                    "weight": 0.0
+                  },
+                  "cabinClass": {
+                    "code": "R",
+                    "name": "ECONOMY"
+                  },
+                  "depart": {
+                    "dateTime": "2019-01-11T17:00:00+0000",
+                    "location": {
+                      "code": "EDI",
+                      "countryCode": "GB",
+                      "name": "Edinburgh Airport, Edinburgh, GB",
+                      "timezone": "Europe/London"
+                    }
+                  },
+                  "fareRulesId": "d41d081a82ba65e00ed8639597c6ea1b",
+                  "flightNumber": "5775",
+                  "flightNumbers": [
+                    "5775"
+                  ],
+                  "number": 1,
+                  "operatingAirline": {
+                    "code": "U2",
+                    "name": "easyJet"
+                  },
+                  "segmentId": "Hulq+ftnQFO/S4NO39gGFw==",
+                  "travelDistance": 559,
+                  "travelTimeMinutes": 60,
+                  "vendorAirline": {
+                    "code": "U2",
+                    "name": "easyJet"
+                  },
+                  "package": {
+                    "additions": [
+                      {
+                        "description": "This fare is refundable",
+                        "included": true,
+                        "type": "FLEXIBILITY"
+                      },
+                      {
+                        "included": false,
+                        "type": "BAGGAGE"
+                      },
+                      {
+                        "included": false,
+                        "type": "SEAT"
+                      },
+                      {
+                        "included": false,
+                        "type": "GROUND_TRANSPORTATION"
+                      },
+                      {
+                        "included": false,
+                        "type": "LOUNGE"
+                      },
+                      {
+                        "included": false,
+                        "type": "MEDICAL"
+                      },
+                      {
+                        "included": false,
+                        "type": "MEAL_BEVERAGE"
+                      },
+                      {
+                        "included": false,
+                        "type": "PRIORITY_BOARDING"
+                      },
+                      {
+                        "included": false,
+                        "type": "SPORTS_EQUIPMENT"
+                      },
+                      {
+                        "included": false,
+                        "type": "OTHER"
+                      }
+                    ],
+                    "baggageAllowance": {
+                      "pieces": 1,
+                      "weight": 0.0
+                    },
+                    "name": "Flexi - MOC",
+                    "title": "Flexi - MOC"
+                  }
+                }
+              ]
+            }
+          ],
+          "holdable": false,
+          "legs": [],
+          "minRate": {
+            "billing": {
+              "amount": "20.00",
+              "currency": "GBP"
+            },
+            "preferred": {
+              "amount": "20.00",
+              "currency": "GBP"
+            },
+            "supplier": {
+              "amount": "20.00",
+              "currency": "GBP"
+            }
+          },
+          "type": "FlightProductDetails"
+        },
+        "formOfPayment": {
+          "accountType": "CREDIT_ACCOUNT",
+          "associatedCostType": "billing",
+          "chargeRoutePlan": false,
+          "creditAccountId": "104473",
+          "creditAccountName": "Extensions",
+          "id": "104473",
+          "status": "ACTIVE",
+          "type": "CREDIT_ACCOUNT"
+        },
+        "id": "0723a1d6-b665-4365-8962-105bb4811b3e",
+        "searchId": "MOCf8adb805-42a5-49d8-b85b-1c931e456f4b",
+        "serviceDate": "2019-01-10",
+        "status": "CONFIRMING",
+        "subProducts": [
+          {
+            "bookingDetails": {
+              "flightAdditions": [],
+              "passengerAssistanceDeclined": false,
+              "requiredInformation": "[]",
+              "requirements": [],
+              "type": "FlightSubProductBookingDetails"
+            },
+            "channel": "MOC",
+            "details": {
+              "apisRequired": false,
+              "baggageAllowance": {
+                "pieces": 1,
+                "weight": 0.0
+              },
+              "baseAmount": {
+                "billing": {
+                  "amount": "10.00",
+                  "currency": "GBP"
+                },
+                "preferred": {
+                  "amount": "10.00",
+                  "currency": "GBP"
+                },
+                "supplier": {
+                  "amount": "10.00",
+                  "currency": "GBP"
+                }
+              },
+              "canPreBookSeats": true,
+              "codeshareCarrier": {
+                "code": "U2",
+                "name": "easyJet"
+              },
+              "estimatedServiceCost": {
+                "billing": {
+                  "amount": "20.00",
+                  "currency": "GBP"
+                },
+                "preferred": {
+                  "amount": "20.00",
+                  "currency": "GBP"
+                },
+                "supplier": {
+                  "amount": "20.00",
+                  "currency": "GBP"
+                }
+              },
+              "features": [],
+              "fees": [
+                {
+                  "billing": {
+                    "amount": "0.86",
+                    "currency": "GBP"
+                  },
+                  "corporate": true,
+                  "preferred": {
+                    "amount": "0.86",
+                    "currency": "GBP"
+                  },
+                  "supplier": {
+                    "amount": "0.86",
+                    "currency": "GBP"
+                  },
+                  "type": "AMERICAN_EXPRESS"
+                },
+                {
+                  "billing": {
+                    "amount": "0.86",
+                    "currency": "GBP"
+                  },
+                  "corporate": true,
+                  "preferred": {
+                    "amount": "0.86",
+                    "currency": "GBP"
+                  },
+                  "supplier": {
+                    "amount": "0.86",
+                    "currency": "GBP"
+                  },
+                  "type": "VISA"
+                },
+                {
+                  "billing": {
+                    "amount": "0.86",
+                    "currency": "GBP"
+                  },
+                  "corporate": true,
+                  "preferred": {
+                    "amount": "0.86",
+                    "currency": "GBP"
+                  },
+                  "supplier": {
+                    "amount": "0.86",
+                    "currency": "GBP"
+                  },
+                  "type": "MASTER_CARD"
+                }
+              ],
+              "firstNightAccommodationRequired": false,
+              "information": [],
+              "passengerType": "ADULT",
+              "requirements": [],
+              "rules": [],
+              "seatReservations": [],
+              "sentLoyaltySchemes": [],
+              "supportsSeatMap": true,
+              "surcharges": [],
+              "taxAmount": {
+                "billing": {
+                  "amount": "10.00",
+                  "currency": "GBP"
+                },
+                "preferred": {
+                  "amount": "10.00",
+                  "currency": "GBP"
+                },
+                "supplier": {
+                  "amount": "10.00",
+                  "currency": "GBP"
+                }
+              },
+              "totalEstimatedCost": {
+                "billing": {
+                  "amount": "20.00",
+                  "currency": "GBP"
+                },
+                "preferred": {
+                  "amount": "20.00",
+                  "currency": "GBP"
+                },
+                "supplier": {
+                  "amount": "20.00",
+                  "currency": "GBP"
+                }
+              },
+              "totalEstimatedCostWithAdditions": {
+                "billing": {
+                  "amount": "20.00",
+                  "currency": "GBP"
+                },
+                "preferred": {
+                  "amount": "20.00",
+                  "currency": "GBP"
+                },
+                "supplier": {
+                  "amount": "20.00",
+                  "currency": "GBP"
+                }
+              },
+              "type": "FlightSubProductDetails"
+            },
+            "id": "0",
+            "notes": [],
+            "policyComplianceState": "NON_COMPLIANT",
+            "reference": "b42b211c-1f6c-478e-860a-8a4867eead27",
+            "sfsProductId": "MOCf8adb805-42a5-49d8-b85b-1c931e456f4b_95cac439-4076-49d9-b51e-682195ada2d5",
+            "sfsReference": "F118643",
+            "supplierReference": "b42b211c-1f6c-478e-860a-8a4867eead27",
+            "ticketNumbers": [
+              "TicketNumberForLorena2Morales2"
+            ],
+            "traveller": {
+              "emailAddress": "y@x.com",
+              "firstName": "y",
+              "guest": false,
+              "hasApisDetails": false,
+              "id": "0",
+              "lastName": "x",
+              "organisationId": "a12b6afd-cff9-4a3d-baed-9236d6ee6fd6",
+              "organisationName": "Click Travel",
+              "passengerAssistanceConfigured": false,
+              "registered": true,
+              "userId": "0"
+            }
+          }
+        ],
+        "travelType": "FLIGHT"
+      },
+      "refundable": false,
+      "serviceDate": "2019-01-10",
+      "status": "CONFIRMED"
+    }, 
     {
       "booker": {
         "emailAddress": "x@y.com",

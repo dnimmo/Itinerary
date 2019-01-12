@@ -3,6 +3,21 @@ module Data.Hotel exposing (additions, address, cancellationPolicy, checkInDate,
 import Data.Bookings exposing (Booking, SubProduct, subProduct)
 
 
+type alias HotelBookingDetails =
+    -- This type alias is unused, but this is everything that we currently use for hotels. TODO: Sort out decoding into travel types more sensibly -Nimmo
+    { id : String
+    , address : List String
+    , name : String
+    , email : String
+    , telephone : String
+    , checkInDate : String
+    , checkOutDate : String
+    , roomType : String
+    , additions : Maybe (List String)
+    , totalCost : String
+    }
+
+
 address : Booking -> List String
 address booking =
     case booking.product.details.address of

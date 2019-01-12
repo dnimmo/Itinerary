@@ -10,7 +10,7 @@ module Data.Bookings exposing
     , subProduct
     )
 
-import Json.Decode as Decode exposing (Decoder, list, maybe, nullable, string)
+import Json.Decode as Decode exposing (Decoder, int, list, maybe, nullable, string)
 import Json.Decode.Pipeline exposing (optional, required)
 
 
@@ -84,10 +84,58 @@ type alias ProductDetails =
     }
 
 
+type alias FlightSegmentLocation =
+    { code : String
+    , countryCode : String
+    , name : String
+    }
+
+
+type alias FlightSegmentPoint =
+    { dateTime : String
+    , location : FlightSegmentLocation
+    }
+
+
+type alias AirlineDetails =
+    { code : String
+    , name : String
+    }
+
+
+type alias FlightPackageDetails =
+    { name : String }
+
+
+type alias BaggageAllowanceDetails =
+    { pieces : Int
+    , weight : Int
+    }
+
+
+type alias FlightSegment =
+    { arrive : FlightSegmentPoint
+    , depart : FlightSegmentPoint
+    , travelTimeMinutes : Int
+    , operatingAirline : AirlineDetails
+    , vendorAirline : AirlineDetails
+    , flightNumber : String
+    , aircraft : String
+    , package : FlightPackageDetails
+    , baggageAllowance : BaggageAllowanceDetails
+    }
+
+
+type alias FlightDetails =
+    { segments : List FlightSegment
+    }
+
+
 type alias Product =
     { details : ProductDetails
     , subProducts : List SubProduct
     , travelType : TravelType
+    , flights : Maybe (List FlightDetails)
     }
 
 
@@ -117,7 +165,7 @@ productDetailsDecoder : Decoder ProductDetails
 productDetailsDecoder =
     Decode.succeed ProductDetails
         |> optional "address" (nullable (list string)) Nothing
-        |> optional "checkInDate" (nullable string) Nothing 
+        |> optional "checkInDate" (nullable string) Nothing
         |> optional "checkOutDate" (nullable string) Nothing
         |> optional "emailAddress" (nullable string) Nothing
         |> optional "profileImage" (nullable profileImageDecoder) Nothing
@@ -176,12 +224,60 @@ travelTypeDecoder =
             )
 
 
+segmentPointDecoder : Decoder FlightSegmentPoint
+segmentPointDecoder =
+    Decode.succeed FlightSegmentPoint
+        |> required "dateTime" string
+        |> required "location"
+            (Decode.succeed FlightSegmentLocation
+                |> required "code" string
+                |> required "countryCode" string
+                |> required "name" string
+            )
+
+
+segmentDecoder : Decoder FlightSegment
+segmentDecoder =
+    Decode.succeed FlightSegment
+        |> required "arrive" segmentPointDecoder
+        |> required "depart" segmentPointDecoder
+        |> required "travelTimeMinutes" int
+        |> required "operatingAirline"
+            (Decode.succeed AirlineDetails
+                |> required "code" string
+                |> required "name" string
+            )
+        |> required "vendorAirline"
+            (Decode.succeed AirlineDetails
+                |> required "code" string
+                |> required "name" string
+            )
+        |> required "flightNumber" string
+        |> required "aircraft" string
+        |> required "package"
+            (Decode.succeed FlightPackageDetails
+                |> required "name" string
+            )
+        |> required "baggageAllowance"
+            (Decode.succeed BaggageAllowanceDetails
+                |> required "pieces" int
+                |> required "weight" int
+            )
+
+
+flightDetailsDecoder : Decoder FlightDetails
+flightDetailsDecoder =
+    Decode.succeed FlightDetails
+        |> required "segments" (list segmentDecoder)
+
+
 productDecoder : Decoder Product
 productDecoder =
     Decode.succeed Product
         |> required "details" productDetailsDecoder
         |> required "subProducts" (list subProductDecoder)
         |> required "travelType" travelTypeDecoder
+        |> optional "flights" (nullable (list flightDetailsDecoder)) Nothing
 
 
 bookerDecoder : Decoder Booker

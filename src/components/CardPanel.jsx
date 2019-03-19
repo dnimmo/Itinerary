@@ -12,7 +12,7 @@ const CardPanel =
     return (
       <div className="no-bookings-panel">
         <p>You don&#39;t have any travel booked</p>
-        <p className="detail">Once you book some travel on <a href="https://apps.travel.cloud">travel.cloud</a> your itinerary will appear here.</p>
+        <p className="detail">Once you book some travel on <a href="https://my.clicktravel.com">clicktravel.com</a> your itinerary will appear here.</p>
       </div>
     );
   };

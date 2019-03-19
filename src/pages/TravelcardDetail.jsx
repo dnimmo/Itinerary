@@ -22,7 +22,7 @@ const renderTravelcardDetails =
           <a
             href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`}
             className="external-link"
-          >View this booking in travel.cloud</a>
+          >View this booking in clicktravel.com</a>
         </div>);
     }
     return <p>loading...</p>;

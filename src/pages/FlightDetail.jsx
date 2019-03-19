@@ -45,7 +45,7 @@ const renderFlightDetails =
             currency={booking.product.subProducts[0].details.totalEstimatedCost.billing.currency}
             totalFare={booking.product.subProducts[0].details.totalEstimatedCost.billing.amount}
           />
-          <a href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`} className="external-link">View this booking in travel.cloud</a>
+          <a href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`} className="external-link">View this booking in clicktravel.com</a>
         </div>
       )
       : <p>loading...</p>

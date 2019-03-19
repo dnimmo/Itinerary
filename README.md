@@ -1,11 +1,11 @@
-# Itinerary by travel.cloud
+# Itinerary by clicktravel.com
 
-Your travel.cloud bookings are always at hand, even when you don't have Internet access.
+Your clicktravel bookings are always at hand, even when you don't have Internet access.
 
 # Setup
 Run `npm i` to install project dependencies.
 # Development
-Run `npm start` to start the development environment on `localhost:3000`. In order to develop locally, you will need a client ID. Currently, client ID's are issued on request by contacting engineering@travel.cloud.
+Run `npm start` to start the development environment on `localhost:3000`. In order to develop locally, you will need a client ID. Currently, client ID's are issued on request by contacting engineering@clicktravel.com.
 # Deployment
 Run `npm run build` to run a full build of the application. The contents of `/public` are to be served as a static site.
 

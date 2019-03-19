@@ -49,7 +49,7 @@
   "bugs": {
     "url": "https://github.com/travel-cloud/Itinerary/issues"
   },
-  "homepage": "https://my.travel.cloud/",
+  "homepage": "https://itinerary.clicktravel.com/",
   "license": "Apache-2.0",
   "directories": {
     "src": "src"

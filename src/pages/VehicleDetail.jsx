@@ -23,7 +23,7 @@ const renderVehicleDetails =
             model={booking.product.subProducts[0].details.model}
             imageUrl={booking.product.subProducts[0].details.imageUrl}
           />
-          <a href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`} className="external-link">View this booking in travel.cloud</a>
+          <a href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`} className="external-link">View this booking in clicktravel.com</a>
         </div>);
     }
     return <p>loading...</p>;

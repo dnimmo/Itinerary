@@ -1,7 +1,7 @@
 {
     "short_name":"Itinerary",
-    "name":"Itinerary by travel.cloud",
-    "description": "Your travel.cloud bookings are always at hand even when you don't have internet access.",
+    "name":"Itinerary by clicktravel.com",
+    "description": "Your clicktravel bookings are always at hand even when you don't have internet access.",
     "icons":[
         {
             "src":"https://static-assets.travel.cloud/favicons/36x36-v2.png",

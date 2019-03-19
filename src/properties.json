@@ -1,5 +1,5 @@
 {
-  "travelcloudUrl": "whttps://apps.travel.cloud/",
+  "travelcloudUrl": "https://my.clicktravel.com/",
   "authUrl" : "https://auth.uat.travel.cloud/oauth/authorize?",
   "clientId" : "ab31eaeb",
   "redirectUri" : "redirect_uri=http://localhost:3000/sign-in",

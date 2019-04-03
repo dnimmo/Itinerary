@@ -4,37 +4,27 @@
     "description": "Your clicktravel bookings are always at hand even when you don't have internet access.",
     "icons":[
         {
-            "src":"https://static-assets.travel.cloud/favicons/clicktravel/36x36.png",
-            "type":"image/png",
-            "sizes":"36x36"
-        },
-        {
-            "src":"https://static-assets.travel.cloud/favicons/clicktravel/48x48.png",
+            "src":"https://static-assets.clicktravel.com/favicons/clicktravel/48x48.png",
             "type":"image/png",
             "sizes":"48x48"
         },
         {
-            "src":"https://static-assets.travel.cloud/favicons/clicktravel/72x72.png",
-            "type":"image/png",
-            "sizes":"72x72"
-        },
-        {
-            "src":"https://static-assets.travel.cloud/favicons/clicktravel/96x96.png",
+            "src":"https://static-assets.clicktravel.com/favicons/clicktravel/96x96.png",
             "type":"image/png",
             "sizes":"96x96"
         },
         {
-            "src":"https://static-assets.travel.cloud/favicons/clicktravel/144x144.png",
+            "src":"https://static-assets.clicktravel.com/favicons/clicktravel/144x144.png",
             "type":"image/png",
             "sizes":"144x144"
         },
         {
-            "src":"https://static-assets.travel.cloud/favicons/clicktravel/192x192.png",
+            "src":"https://static-assets.clicktravel.com/favicons/clicktravel/192x192.png",
             "type":"image/png",
             "sizes":"192x192"
         },
         {
-            "src":"https://static-assets.travel.cloud/favicons/clicktravel/512x512.png",
+            "src":"https://static-assets.clicktravel.com/favicons/clicktravel/512x512.png",
             "type":"image/png",
             "sizes":"512x512"
         }

@@ -33,7 +33,7 @@ const renderHotelDetails =
               additions={booking.product.subProducts[0].details.additions}
               selectedAdditions={booking.product.subProducts[0].bookingDetails.additions}
             />
-            <a href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`} className="external-link">View this booking in clicktravel.com</a>
+            <a href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`} className="external-link">View this booking in Click Travel</a>
           </div>
         )
         : <p>loading...</p>

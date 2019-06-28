@@ -30,7 +30,7 @@ const renderAirportParkingDetails =
               carRegistration={booking.product.subProducts[0].bookingDetails.requirements.find(({ id }) => id === 'CAR_REGISTRATION').value}
               barCode={booking.product.subProducts[0].details.barcode}
             />
-            <a href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`} className="external-link">View this booking in clicktravel.com</a>
+            <a href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`} className="external-link">View this booking in Click Travel</a>
           </div>
         )
         : <p>loading...</p>

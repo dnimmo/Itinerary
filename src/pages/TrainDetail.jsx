@@ -34,7 +34,7 @@ const renderTrainDetails =
             totalFare={booking.product.subProducts[0].details.totalEstimatedCost.preferred.amount}
             routeRestriction={booking.product.subProducts[0].details.fares[0].fareRoute.name}
           />
-          <a href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`} className="external-link">View this booking in travel.cloud</a>
+          <a href={`${properties.travelcloudUrl}Travel.html#/bookings/${booking.id}`} className="external-link">View this booking in Click Travel</a>
         </div>);
     }
     return <p>loading...</p>;

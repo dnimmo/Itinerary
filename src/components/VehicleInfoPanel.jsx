@@ -45,8 +45,12 @@ VehicleInfoPanel.propTypes = {
   id: PropTypes.string.isRequired,
   currency: PropTypes.string.isRequired,
   totalFare: PropTypes.string.isRequired,
-  pickUp: PropTypes.shape({}).isRequired,
-  dropOff: PropTypes.shape({}).isRequired,
+  pickUp: PropTypes.shape({
+    location: PropTypes.shape({ name: PropTypes.string.isRequireds }).isRequired,
+  }).isRequired,
+  dropOff: PropTypes.shape({
+    location: PropTypes.shape({ name: PropTypes.string.isRequireds }).isRequired,
+  }).isRequired,
   model: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
 };

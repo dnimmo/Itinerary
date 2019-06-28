@@ -1,4 +1,4 @@
-const version = 'Wartortle';
+const version = 'Blastoise';
 const dynamicCacheVersion = `${version}-dynamic`;
 
 const isDynamic = url => url.includes('travel.cloud/users/user/futureBookings');

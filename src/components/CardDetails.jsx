@@ -57,7 +57,25 @@ const CardDetails =
 
 CardDetails.propTypes = {
   travelType: PropTypes.string.isRequired,
-  data: PropTypes.shape({}).isRequired,
+  data: PropTypes.shape({
+    action: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    depart: PropTypes.shape({
+      split: PropTypes.string.isRequired,
+    }).isRequired,
+    vendor: PropTypes.string.isRequired,
+    ticketType: PropTypes.string.isRequired,
+    pickUpLocation: PropTypes.string.isRequired,
+    dropOffLocation: PropTypes.string.isRequired,
+    rentalCompanyName: PropTypes.string.isRequired,
+    arrive: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    location: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+    propertyName: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default CardDetails;
